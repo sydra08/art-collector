@@ -33,12 +33,22 @@
 **Model Relationships**
 
 + An artist has_many artworks
+
++ An artwork belongs_to an artist
++ An artwork has_many collections through collection_artworks
+
++ A collection has_many artists through artworks
 + A collection has_many artworks through collection_artworks
 + A collection has_many collection_artworks
-+ An artwork belongs_to an artist
-+ A collection has_many artists through artworks
-+ A user has_many collections
-+ A collection belongs_to a user
+
++ A user has_many user_collections
++ A user has_many collections through user_collections
+
++ A user_collection belongs_to a user
++ A user_collection belongs_to a collection
+
++ A collection_artwork belongs_to an artwork
++ A collection_artwork belongs_to a collection
 
 **Questions**
 
@@ -55,7 +65,7 @@ comment TEXT
 
 *Collection_Artworks*
 collection_artworks_id INT (PK)
-art_id INT (FK)
+artwork_id INT (FK)
 collection_id INT (FK)
 
 *Artworks*
@@ -68,8 +78,9 @@ year INT (optional?)
 artist_id INT (PK)
 name STRING (required)
 style STRING
-date_of_birth INT
-date_of_death INT
+location STRING
+birth_year INT
+alive BOOL
 
 *Users*
 user_id INT (PK)
@@ -77,3 +88,8 @@ collection_id INT (FK)
 username STRING (required)
 password_digest STRING (required)
 email STRING (required)
+
+*User_Collections*
+user_collections_id INT (PK)
+user_id INT (FK)
+collection_id INT (FK)
