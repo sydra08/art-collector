@@ -13,6 +13,8 @@
 [ ] set up session controller (?)
 [ ] set up basic views
 [ ] test to make sure views work before elaborating on them
+[ ] user auth
+[ ] style views
 
 
 **Basic Outline of App**
