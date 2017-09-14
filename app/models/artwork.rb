@@ -1,5 +1,7 @@
 class Artwork < ActiveRecord::Base
-  belongs_to :artist
+  extend Slugifiable::ClassMethods
+  include Slugifiable::InstanceMethods
 
+  belongs_to :artist
   validates :name, presence: true
 end
