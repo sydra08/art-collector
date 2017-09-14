@@ -9,7 +9,7 @@
 [x] seed database with artists and artworks
 [x] set up controller files
 [x] enable sessions in ApplicationController
-[ ] set up basic views
+[x] set up basic views
 [ ] test to make sure views work before elaborating on them
 [ ] user auth
 [ ] style views
