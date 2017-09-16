@@ -1,3 +1,16 @@
+<div id="navbar">
+  <% if logged_in? %>
+    <a href="/artists" class="button">Browse Artists</a>
+    <a href="/artworks" class="button">Browse Artworks</a>
+    <a href="/users/<%=current_user.slug%>" class="button">My Collections</a>
+    <a href="/logout" class="button">Log Out</a>
+  <% else %>
+    <a href="/signup" class="button">Sign Up</a>
+    <a href="/artists" class="button">Browse Artists</a>
+    <a href="/artworks" class="button">Browse Artworks</a>
+  <% end %>
+</div>
+
 <p>show a single piece of art</p>
 
 <h1><%=@artwork.name%></h1>
