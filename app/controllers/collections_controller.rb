@@ -22,7 +22,7 @@ class CollectionsController < ApplicationController
       @artwork.save
       @collection.artworks << @artwork
     end
-    
+
     @collection.save
     current_user.collections << @collection
 
@@ -32,6 +32,20 @@ class CollectionsController < ApplicationController
   get '/collections/:id' do
     @collection = Collection.find(params[:id])
     erb :'/collections/show_collection'
+  end
+
+  patch '/collections/:id' do
+    @collection = Collection.find(params[:id])
+    # if the name was changed, update it
+    # update the artworks (this should deal with check/uncheck)
+    # should users be allowed to add new artworks here? 
+
+    if !params[:collection][:name].empty?
+      @collection.name = params[:collection][:name]
+    end
+    @collection.artwork_ids = params[:collection][:artwork_ids]
+
+    redirect to "/collections/#{@collection.id}"
   end
 
   get '/collections/:id/edit' do

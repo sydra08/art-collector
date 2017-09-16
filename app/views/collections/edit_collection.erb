@@ -1,1 +1,31 @@
-<p>form to edit a collection</p>
+<div id="navbar">
+  <a href="/artists" class="button">Browse Artists</a>
+  <a href="/artworks" class="button">Browse Artworks</a>
+  <a href="/users/<%=current_user.slug%>" class="button">My Collections</a>
+  <a href="/logout" class="button">Log Out</a>
+</div>
+
+<h1>Edit <%=@collection.name%></h1>
+<!-- don't need to show current works because you'll see it in the list below
+<h4>Current Artworks</h4>
+<ul>
+<% @collection.artworks.each do |a| %>
+    <li><%=a.name%></a></li>
+  <%end%>
+</ul> -->
+
+<form action="/collections/<%=@collection.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Update name: </label><input type="text" name="collection[name]" placeholder="my collection">
+  <br></br>
+
+  <label><strong>Update artworks:</strong></label>
+  <br>
+  <%Artwork.all.each do |a|%>
+  <input type="checkbox" name="collection[artwork_ids][]" value="<%=a.id%>" <%='checked' if @collection.artwork_ids.include?(a.id)%>><%=a.name%></input><br />
+  <%end%>
+
+  <br></br>
+
+  <input type="submit" value="Update Collection">
+</form>
