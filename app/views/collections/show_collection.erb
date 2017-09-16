@@ -12,3 +12,9 @@
 </div>
 
 <p>show a single collection with options to delete or edit</p>
+
+<ul>
+<% @collection.artworks.each do |a| %>
+    <li><a href="/artworks/<%=a.slug%>"><%=a.name%></a> by <%=a.artist.name%></li>
+  <%end%>
+</ul>

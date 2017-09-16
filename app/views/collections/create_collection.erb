@@ -1,1 +1,49 @@
+<div id="navbar">
+  <% if logged_in? %>
+    <a href="/artists" class="button">Browse Artists</a>
+    <a href="/artworks" class="button">Browse Artworks</a>
+    <a href="/users/<%=current_user.slug%>" class="button">My Collections</a>
+    <a href="/logout" class="button">Log Out</a>
+  <% else %>
+    <a href="/signup" class="button">Sign Up</a>
+    <a href="/artists" class="button">Browse Artists</a>
+    <a href="/artworks" class="button">Browse Artworks</a>
+  <% end %>
+</div>
+
+<h1>Create a new collection</h1>
 <p>form to create a collection. will also include forms to create new artists or artworks</p>
+
+<form action="/collections" method="post">
+  <label>Name: </label><input type="text" name="collection[name]" placeholder="my collection">
+  <br></br>
+  <!-- <label><strong>Choose an existing artist:</strong></label>
+  <br>
+  <%Artist.all.each do |a|%>
+  <input type="checkbox" name="collection[artist_ids][]" value="<%=a.id%>"><%=a.name%>
+  how do you get this to trigger checking off artworks?
+  <%end%>
+
+  <br></br>
+  <label><strong>and/or, add a new artist:</strong>
+  </label><input type="text" name="artists[]" placeholder="artist name">
+
+  <br></br>-->
+
+  <label><strong>Choose existing artworks:</strong></label>
+  <br>
+  <%Artwork.all.each do |a|%>
+  <input type="checkbox" name="collection[artwork_ids][]" value="<%=a.id%>"><%=a.name%>
+  <%end%>
+
+  <br></br>
+
+  <label><strong>and/or, add a new artwork: </strong></label><input type="text" name="artwork[name]" placeholder="name of artwork">
+  <label><strong>year:</strong>
+  </label><input type="text" name="artwork[year]" placeholder="year">  <label><strong>artist:</strong>
+  </label><input type="text" name="artwork[artist]" placeholder="artist name">
+
+  <br></br>
+
+  <input type="submit" value="Create Collection">
+</form>
