@@ -11,7 +11,7 @@ class CollectionsController < ApplicationController
 
   post '/collections' do
     @collection = Collection.new(name: params[:collection][:name], artwork_ids: params[:collection][:artwork_ids])
-
+    binding.pry
     # create new artwork and artist
     @artwork = Artwork.find_or_initialize_by(name: params[:artwork][:name], year: params[:artwork][:year])
     @artwork.artist = Artist.find_or_create_by(name: params[:artwork][:artist])
@@ -20,7 +20,7 @@ class CollectionsController < ApplicationController
     # add artwork to the collection
     @collection.artworks << @artwork
     @collection.save
-    binding.pry
+
     redirect to "/collections/#{@collection.id}"
   end
 

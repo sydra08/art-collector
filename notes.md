@@ -1,4 +1,4 @@
-**TO DO**
+=**TO DO**
 [x] create migrations
 [x] manually add seed data
 [ ] scrape wikipedia for artists and artworks (for seed data?)
@@ -20,13 +20,18 @@
     [ ] view a collection
     [ ] users can only view/edit their own collections
 [ ] nav bar
-  [ ] signup/login/logout
-  [ ] view artists
-  [ ] view artworks
-  [ ] user profile
+  [x] signup/login/logout
+  [x] view artists
+  [x] view artworks
+  [x] user profile
+  [ ] different depending on the page?
+    (https://github.com/sydra08/exceptional-realty-bootstrapped/blob/master/new-properties.html)
 [ ] create a collection
-  [ ] add an artist
+  [ ] add an artist?
+    [ ] add more than one new artist?
+    [ ] maybe do this through a separate form?
   [ ] add an artwork
+    [ ] add more than one new artwork?
   [ ] if you add an artist to your collection, by default all of the artworks are checked off
 [ ] edit a collection
 [ ] delete a collection
@@ -36,6 +41,7 @@
 
 Misc
 [ ] style the input boxes differently
+[ ] fix the padding on the sidebar div on the homepage
 
 
 **Basic Outline of App**
