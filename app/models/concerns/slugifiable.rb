@@ -11,5 +11,5 @@ module Slugifiable
       name.downcase.gsub(" ", "-")
     end
   end
-  
+
 end
