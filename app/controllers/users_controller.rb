@@ -20,7 +20,23 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
-    erb :'/users/login'
+    if logged_in?
+      redirect to "/users/#{current_user.slug}"
+    else
+      erb :'/users/login'
+    end
+  end
+
+  post '/login' do
+    binding.pry
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect to "/users/#{@user.slug}"
+    else
+      # add flash message here about failed login
+      redirect to '/login'
+    end
   end
 
   get '/users/:slug' do

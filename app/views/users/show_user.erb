@@ -1,4 +1,5 @@
 <p>show all of a user's collections</p>
+<h1>Welcome <%=current_user.username!%></h1>
 <ul>
   <% current_user.collections.all.each do |c| %>
     <li><a href="/collections/<%=c.id%>"><%=c.name%></a></li>
