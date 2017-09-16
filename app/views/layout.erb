@@ -15,16 +15,6 @@
 </head>
 <body>
   <div class="wrapper">
-    <div id="navbar">
-      <% if logged_in? %>
-        <a href="/artists" class="button">View Artists</a>
-        <a href="/artworks" class="button">View Artworks</a>
-        <a href="/logout" class="button">Log Out</a>
-      <% else %>
-        <a href="/signup" class="button">Sign Up</a>
-        <a href="/login" class="button">Log In</a>
-      <% end %>
-    </div>
 
       <%= yield %>
 
