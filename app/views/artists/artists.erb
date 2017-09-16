@@ -1,1 +1,7 @@
 <p>show all artists (potentially with the artwork count next to the name) with links to each one's individual page</p>
+
+<ul>
+  <% Artist.all.each do |a| %>
+    <li><a href="/artists/<%=a.slug%>"><%=a.name%></a> (<%=a.artworks.count%>)</li>
+  <%end%>
+</ul>

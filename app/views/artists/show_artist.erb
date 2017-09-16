@@ -1,1 +1,11 @@
 <p>show a single artist and all of their artworks in the db that links to the artwork show page</p>
+
+<h1><%=@artist.name%></h1>
+
+<br/>
+<p><strong>Artworks</strong></p>
+<ul>
+  <% @artist.artworks.each do |a| %>
+    <li><%=a.name%></li>
+  <% end %>
+</ul>
