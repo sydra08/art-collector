@@ -15,6 +15,32 @@
 
 <h1><%=@artist.name%></h1>
 
+<div class="sidebar">
+  <ul>
+    <li>Born <%=@artist.birth_year%>,
+      <%if @artist.alive%>
+        Alive
+      <%else%>
+        Deceased
+      <%end%>
+    </li>
+    <li><%=@artist.location%></li>
+    <li>Style/Movement: <%=@artist.movement%></li>
+  </ul>
+</div>
+
+<ul>
+  <li>Born <%=@artist.birth_year%>,
+    <%if @artist.alive%>
+      Alive
+    <%else%>
+      Deceased
+    <%end%>
+  </li>
+  <li><%=@artist.location%></li>
+  <li>Style/Movement: <%=@artist.movement%></li>
+</ul>
+
 <br/>
 <p><strong>Artworks</strong></p>
 <ul>

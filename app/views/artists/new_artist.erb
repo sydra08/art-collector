@@ -1,0 +1,23 @@
+<h1>create a new artist and add to db</h1>
+<form action="/artists" method="post">
+  <label>Artist Name: </label><input type="text" name="artist[name]" placeholder="Caravaggio"><br/>
+
+  <label>Birth Year: </label><input type="text" name="artist[year]" placeholder="1492"><br/>
+
+  <label>Hometown: </label><input type="text" name="artist[name]" placeholder="Florence, Italy"><br/>
+
+  <label>Style/Movement: </label><input type="text" name="artist[movement]" placeholder="Abstract Expressionism"><br/>
+
+  <label>Alive?</label>
+
+  <input type="radio" id="true"
+   name="artist[alive]" value="true">
+  <label for="true">Yes</label>
+
+  <input type="radio" id="false"
+   name="artist[alive]" value="false">
+  <label for="false">No</label>
+
+  <br/>
+  <input type="submit" value="Add Artist">
+</form>
