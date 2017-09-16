@@ -13,8 +13,13 @@
         <a href="/collections/<%=c.id%>"><%=c.name%></a>
       </strong>
       <small>
-        <a href="/collections/<%=c.id%>/edit">edit</a>
-        <a href="/collections/<%=c.id%>/delete">delete</a>
+        <form action="/collections/<%=c.id%>/edit" method="get">
+          <input type="submit" value="Edit">
+        </form>
+        <form action="/collections/<%=c.id%>/delete" method="post">
+          <input id="hidden" type="hidden" name="_method" value="delete">
+          <input type="submit" value="Delete">
+        </form>
       </small>
     </li>
   <%end%>

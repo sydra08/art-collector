@@ -11,7 +11,6 @@ class CollectionsController < ApplicationController
 
   post '/collections' do
     @collection = Collection.new(name: params[:collection][:name], artwork_ids: params[:collection][:artwork_ids])
-    binding.pry
     # if the artwork params aren't nil, create the artwork
     if !params[:artwork][:name].empty?
       @artwork = Artwork.find_or_initialize_by(name: params[:artwork][:name], year: params[:artwork][:year])
@@ -35,12 +34,7 @@ class CollectionsController < ApplicationController
   end
 
   patch '/collections/:id' do
-    binding.pry
     @collection = Collection.find(params[:id])
-    # if the name was changed, update it
-    # update the artworks (this should deal with check/uncheck)
-    # should users be allowed to add new artworks here?
-
     if !params[:collection][:name].empty?
       @collection.name = params[:collection][:name]
     end
@@ -53,6 +47,18 @@ class CollectionsController < ApplicationController
   get '/collections/:id/edit' do
     @collection = Collection.find(params[:id])
     erb :'/collections/edit_collection'
+  end
+
+  delete '/collections/:id/delete' do
+    @collection = Collection.find(params[:id])
+    if logged_in? && current_user.id == @collection.id
+      @collection.destroy
+      #flash message indicating success
+      redirect to "/users/#{@user.slug}"
+    else
+      #flash message - you can't delete other people's collections
+      redirect to '/'
+    end
   end
 
 end

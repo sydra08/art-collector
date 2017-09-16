@@ -7,7 +7,18 @@
 
 <p>show a single collection with options to delete or edit</p>
 <h1><%=@collection.name%></h1>
-<p><a href="/collections/<%=@collection.id%>/edit">edit</a> <a href="/collections/<%=@collection.id%>/delete">delete</a></p>
+<p>
+  <small>
+    <form action="/collections/<%=@collection.id%>/edit" method="get">
+      <input type="submit" value="Edit">
+    </form>
+    <form action="/collections/<%=@collection.id%>/delete" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete">
+    </form>
+  </small>
+</p>
+
 <ul>
 <% @collection.artworks.each do |a| %>
     <li><a href="/artworks/<%=a.slug%>"><%=a.name%></a></li>
