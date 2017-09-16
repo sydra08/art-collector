@@ -35,15 +35,17 @@ class CollectionsController < ApplicationController
   end
 
   patch '/collections/:id' do
+    binding.pry
     @collection = Collection.find(params[:id])
     # if the name was changed, update it
     # update the artworks (this should deal with check/uncheck)
-    # should users be allowed to add new artworks here? 
+    # should users be allowed to add new artworks here?
 
     if !params[:collection][:name].empty?
       @collection.name = params[:collection][:name]
     end
     @collection.artwork_ids = params[:collection][:artwork_ids]
+    @collection.save
 
     redirect to "/collections/#{@collection.id}"
   end
