@@ -1,4 +1,4 @@
-=**TO DO**
+**TO DO**
 [x] create migrations
 [x] manually add seed data
 [ ] scrape wikipedia for artists and artworks (for seed data?)
@@ -24,8 +24,16 @@
   [x] view artists
   [x] view artworks
   [x] user profile
-  [ ] different depending on the page?
+  [ ] different depending on the page (but in html/css not erb conditionals)?
     (https://github.com/sydra08/exceptional-realty-bootstrapped/blob/master/new-properties.html)
+  [ ] remove conditionals from the navbar on pages what require the user to be logged in
+[ ] browse artworks
+    [ ] sort alphabetically?
+    [ ] sort chronologically?
+    [ ] sort by artist?
+[ ] browse artists
+    [ ] sort alphabetically?
+    [ ] sort by number of works?
 [ ] create a collection
   [ ] add an artist?
     [ ] add more than one new artist?
@@ -42,6 +50,9 @@
 Misc
 [ ] style the input boxes differently
 [ ] fix the padding on the sidebar div on the homepage
+[ ] style the checkbox lists differently
+[ ] change the background color
+[ ] find a new google font?
 
 
 **Basic Outline of App**
