@@ -26,7 +26,7 @@
   [x] user profile
   [ ] different depending on the page (but in html/css not erb conditionals)?
     (https://github.com/sydra08/exceptional-realty-bootstrapped/blob/master/new-properties.html)
-  [ ] remove conditionals from the navbar on pages what require the user to be logged in
+  [x] remove conditionals from the navbar on pages what require the user to be logged in
 [ ] browse artworks
     [ ] sort alphabetically?
     [ ] sort chronologically?
@@ -34,14 +34,14 @@
 [ ] browse artists
     [ ] sort alphabetically?
     [ ] sort by number of works?
-[ ] create a collection
+[x] create a collection
   [ ] add an artist?
     [ ] add more than one new artist?
     [ ] maybe do this through a separate form?
-  [ ] add an artwork
+  [x] add an artwork
     [ ] add more than one new artwork?
   [ ] if you add an artist to your collection, by default all of the artworks are checked off
-[ ] edit a collection
+[x] edit a collection (add/remove existing works, update collection name)
 [ ] delete a collection
 [ ] add flash messages
 [ ] style views
@@ -53,6 +53,12 @@ Misc
 [ ] style the checkbox lists differently
 [ ] change the background color
 [ ] find a new google font?
+[ ] why are the edit routes showing up with ? at the end...need to investigate buttons more when I work on styling the routes
+[ ] add trash can and pen icons to the "all collections" view
+[ ] add trash can and pen icons to the "single collection" view
+[ ] add http://google.github.io/material-design-icons/ to fonts (icons)
+  [ ] edit = <i class="material-icons">mode_edit</i>
+  [ ] delete = <i class="material-icons">delete</i>
 
 
 **Basic Outline of App**
