@@ -1,6 +1,7 @@
 **TO DO**
 [x] create migrations
-[ ] scrape wikipedia for artists and artworks (for seed data)
+[x] manually add seed data
+[ ] scrape wikipedia for artists and artworks (for seed data?)
 [x] create models
 [x] set up model relationships and validations
 [x] test models via tux
@@ -10,10 +11,31 @@
 [x] set up controller files
 [x] enable sessions in ApplicationController
 [x] set up basic views
-[ ] test to make sure views work before elaborating on them
-[ ] user auth
+[x] set up routes
+[x] test to make sure views work before elaborating on them
+[x] user auth
+  [x] sign up
+  [x] login
+  [ ] user auth for individual pages
+    [ ] view a collection
+    [ ] users can only view/edit their own collections
+[ ] nav bar
+  [ ] signup/login/logout
+  [ ] view artists
+  [ ] view artworks
+  [ ] user profile
+[ ] create a collection
+  [ ] add an artist
+  [ ] add an artwork
+  [ ] if you add an artist to your collection, by default all of the artworks are checked off
+[ ] edit a collection
+[ ] delete a collection
+[ ] add flash messages
 [ ] style views
 [ ] decide if i want to have default values for things in tables or just handle another way in erb
+
+Misc
+[ ] style the input boxes differently
 
 
 **Basic Outline of App**
