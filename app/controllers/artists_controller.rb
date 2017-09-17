@@ -5,15 +5,23 @@ class ArtistsController < ApplicationController
   end
 
   get '/artists/new' do
-    #users should only be allowed to access this if they are logged in
-    erb :'/artists/new_artist'
+    if logged_in?#users should only be allowed to access this if they are logged in
+      erb :'/artists/new_artist'
+    else
+      # flash message - you must be logged in to create a new artist
+      redirect to '/artists'
+    end
   end
 
   post '/artists' do
-    binding.pry
     @artist = Artist.find_by(name: params[:name])
     if @artist == nil
+      binding.pry
       @artist = Artist.new(name: params[:name], birth_year: params[:year], location: params[:location], movement: params[:movement], alive: params[:alive])
+      if params[:artwork].empty?
+        @artwork = Artwork.find_or_create_by(name: params[:artwork][:name], year: params[:artwork][:year])
+        @artist.artworks << @artwork
+      end
       if @artist.save
         redirect to "/artists/#{@artist.slug}"
       end

@@ -1,4 +1,4 @@
-<h1>create a new artist and add to db</h1>
+<h1>create a new artist and add to db --- should you be able to assign new artworks?</h1>
 <form action="/artists" method="post">
   <label>Artist Name: </label><input type="text" name="name" placeholder="Caravaggio"><br/>
 
@@ -18,7 +18,12 @@
    name="alive" value="false">
   <label for="false">No</label>
 
-  <br/>
+  <br><br/>
+
+  <label><strong>add an artwork: </strong></label><input type="text" name="artwork[name]" placeholder="name of artwork">
+  <label><strong>year:</strong>
+  </label><input type="text" name="artwork[year]" placeholder="year">
+
   <input type="submit" value="Add Artist">
 </form>
 
