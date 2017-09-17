@@ -27,34 +27,36 @@
   [ ] different depending on the page (but in html/css not erb conditionals)?
     (https://github.com/sydra08/exceptional-realty-bootstrapped/blob/master/new-properties.html)
   [x] remove conditionals from the navbar on pages what require the user to be logged in
-  <!-- [ ] have different nav bar sections?
-    [ ] actions: new/edit/delete
-    [ ] locations: browse artists/artworks/collections -->
 [ ] browse artworks
     [ ] sort alphabetically?
-    [ ] sort chronologically?
     [ ] sort by artist?
-    <!-- [x] add an artwork
-    [ ] edit an artwork -->
-      [ ] should users be allowed to change the name?
-[ ] browse artists
+[ ] browse artists 
     [ ] sort alphabetically?
     [ ] sort by number of works?
-    <!-- [x] add an artist
-    [x] edit an artist -->
 [x] create a collection
-  [ ] add an artist?
-    [ ] add more than one new artist?
-    [ ] maybe do this through a separate form?
-  [x] add an artwork
-    [ ] add more than one new artwork?
-  <!-- [ ] if you add an artist to your collection, by default all of the artworks are checked off -->
-[ ] maybe through the 'show collection' view is where you can add new artworks to the collection and then "create collection" part is where you set the name?
-  [ ] could also have a 'description field'
+  [ ] add a name (required)
+  [ ] add any existing artworks to your collection
+    [ ] if none are chosen should there be a message like "this collection is empty! add some artworks to get started"
+[ ] view a collection
+  [ ] can remove artworks from a collection on this page (trash icon)
+  [ ] button to 'add new artwork'
+    [ ] can add ONE from the list of existing artworks
+    [ ] OR can add/create a new artwork
+      [ ] field for name (required)
+      [ ] field for year (optional)
+      [ ] field for artist
+        [ ] can choose from list of existing artists or create a new artist
+        [ ] should artworks be required to have an artist? or should there be a default value of "unknown"
+  [ ] add an artwork
+    [ ] if an artwork starts with the word "the" you can run a search for it with and without the "the"
 [x] edit a collection (add/remove existing works, update collection name)
 [ ] delete a collection
   [ ] add a pop up confirmation
-[ ] add flash messages
+[ ] add error messages
+  [ ] look into AR validation messages http://edgeguides.rubyonrails.org/active_record_validations.html
+[ ] input validations
+  [ ] when a user adds an artwork, should they be able to add "Mona Lisa" if "The Mona Lisa" exists?
+[ ] maybe remove the 'browse artist' view for now?
 [ ] style views
 [ ] decide if i want to have default values for things in tables or just handle another way in erb
 
@@ -75,6 +77,14 @@ Misc
 [ ] consider how changing the name affects the slug?
 [ ] reset database and re-seed before submitting
 [ ] when you're creating a collection should you be able to select from a dropdown menu?
+[ ] review all of the messages/verbiage before submitting
+
+Enhancements/Improvements for a later iteration
++ if you add an artist to your collection, by default all of the artworks are checked off
++ collections can have a description
++ have different navbar sections?
++ allow users to add/edit artworks in the database?
++ allow users to add/edit artists in the database?
 
 **Basic Outline of App**
 
