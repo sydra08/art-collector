@@ -41,6 +41,7 @@ class ArtworksController < ApplicationController
 
   patch '/artworks/:slug' do
     @artwork = Artwork.find_by_slug(params[:slug])
+    binding.pry
     if !params[:name].empty?
       @artwork.name = params[:name]
     end
@@ -49,8 +50,18 @@ class ArtworksController < ApplicationController
       @artwork.year = params[:year]
     end
 
-    @artwork.save
-    redirect to "/artworks/#{@artwork.slug}"
+    if params[:artist] != @artwork.artist.name
+      @artist = Artist.find_or_create_by(name: params[:artist])
+      @artist.artworks << @artwork
+    end
+
+    if @artwork.save
+      redirect to "/artworks/#{@artwork.slug}"
+    else
+      # there was an error processing your request
+      redirect to "/artworks/#{@artwork.slug}"
+    end
+
   end
 
   get '/artworks/:slug/edit' do
@@ -62,6 +73,5 @@ class ArtworksController < ApplicationController
       redirect to "/artworks/#{@artwork.slug}"
     end
   end
-
-
+  
 end
