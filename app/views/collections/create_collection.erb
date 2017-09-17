@@ -32,12 +32,20 @@
 
   <br></br>
 
-  <label><strong>and/or, add a new artwork: </strong></label><input type="text" name="artwork[name]" placeholder="name of artwork">
-  <label><strong>year:</strong>
-  </label><input type="text" name="artwork[year]" placeholder="year">  <label><strong>artist:</strong>
-  </label><input type="text" name="artwork[artist]" placeholder="artist name">
+  <!-- <h3>Add a new artwork:</h3>
+  <label>name: </label>
+  <input type="text" name="artwork[name]" placeholder="name of artwork"><br>
+  <label>year: </label><input type="text" name="artwork[year]" placeholder="year"><br>
+  <label><strong>artist:</strong>
+  </label><input type="text" name="artwork[artist]" placeholder="artist name"> -->
+  <label>Artist:</label><br>
+  <input type="radio" name="artist" value="">New Artist <input type="text" name="artist" placeholder="name"><br />
+  <%Artist.all.each do |a|%>
+  <input type="radio" name="artist" value="<%=a.name%>"><%=a.name%></input><br />
+  <%end%>
 
-  <br></br>
+
+  <br></br> -->
 
   <input type="submit" value="Create Collection">
 </form>

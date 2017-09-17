@@ -16,9 +16,9 @@
 [x] user auth
   [x] sign up
   [x] login
-  [ ] user auth for individual pages
-    [ ] view a collection
-    [ ] users can only view/edit their own collections
+  [x] user auth for individual pages
+    [x] view a collection
+    [x] users can only view/edit their own collections
 [ ] nav bar
   [x] signup/login/logout
   [x] view artists
@@ -27,28 +27,30 @@
   [ ] different depending on the page (but in html/css not erb conditionals)?
     (https://github.com/sydra08/exceptional-realty-bootstrapped/blob/master/new-properties.html)
   [x] remove conditionals from the navbar on pages what require the user to be logged in
-  [ ] have different nav bar sections?
+  <!-- [ ] have different nav bar sections?
     [ ] actions: new/edit/delete
-    [ ] locations: browse artists/artworks/collections
+    [ ] locations: browse artists/artworks/collections -->
 [ ] browse artworks
     [ ] sort alphabetically?
     [ ] sort chronologically?
     [ ] sort by artist?
-    [x] add an artwork
-    [ ] edit an artwork
+    <!-- [x] add an artwork
+    [ ] edit an artwork -->
       [ ] should users be allowed to change the name?
 [ ] browse artists
     [ ] sort alphabetically?
     [ ] sort by number of works?
-    [x] add an artist
-    [x] edit an artist
+    <!-- [x] add an artist
+    [x] edit an artist -->
 [x] create a collection
   [ ] add an artist?
     [ ] add more than one new artist?
     [ ] maybe do this through a separate form?
   [x] add an artwork
     [ ] add more than one new artwork?
-  [ ] if you add an artist to your collection, by default all of the artworks are checked off
+  <!-- [ ] if you add an artist to your collection, by default all of the artworks are checked off -->
+[ ] maybe through the 'show collection' view is where you can add new artworks to the collection and then "create collection" part is where you set the name?
+  [ ] could also have a 'description field'
 [x] edit a collection (add/remove existing works, update collection name)
 [ ] delete a collection
   [ ] add a pop up confirmation
@@ -68,9 +70,11 @@ Misc
 [ ] add http://google.github.io/material-design-icons/ to fonts (icons)
   [ ] edit = <i class="material-icons">mode_edit</i>
   [ ] delete = <i class="material-icons">delete</i>
-[ ] should a user only be able to edit an artist's details but not their artworks?
-[ ] should you be able edit an artwork's artist?
+<!-- [ ] should a user only be able to edit an artist's details but not their artworks?
+[ ] should you be able edit an artwork's artist? -->
 [ ] consider how changing the name affects the slug?
+[ ] reset database and re-seed before submitting
+[ ] when you're creating a collection should you be able to select from a dropdown menu?
 
 **Basic Outline of App**
 
