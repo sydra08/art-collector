@@ -1,23 +1,26 @@
 <h1>create a new artist and add to db</h1>
 <form action="/artists" method="post">
-  <label>Artist Name: </label><input type="text" name="artist[name]" placeholder="Caravaggio"><br/>
+  <label>Artist Name: </label><input type="text" name="name" placeholder="Caravaggio"><br/>
 
-  <label>Birth Year: </label><input type="text" name="artist[year]" placeholder="1492"><br/>
+  <label>Birth Year: </label><input type="text" name="year" placeholder="1492"><br/>
 
-  <label>Hometown: </label><input type="text" name="artist[name]" placeholder="Florence, Italy"><br/>
+  <label>Hometown: </label><input type="text" name="location" placeholder="Florence, Italy"><br/>
 
-  <label>Style/Movement: </label><input type="text" name="artist[movement]" placeholder="Abstract Expressionism"><br/>
+  <label>Style/Movement: </label><input type="text" name="movement" placeholder="Abstract Expressionism"><br/>
 
   <label>Alive?</label>
 
   <input type="radio" id="true"
-   name="artist[alive]" value="true">
+   name="alive" value="true">
   <label for="true">Yes</label>
 
   <input type="radio" id="false"
-   name="artist[alive]" value="false">
+   name="alive" value="false">
   <label for="false">No</label>
 
   <br/>
   <input type="submit" value="Add Artist">
 </form>
+
+<!--should a user be able to add an artwork for a new artist? YES-->
+<!--should a user be able to assign existing artworks to an artist? (this would override an artwork's current artist)-->

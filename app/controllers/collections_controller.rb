@@ -51,6 +51,7 @@ class CollectionsController < ApplicationController
 
   delete '/collections/:id/delete' do
     @collection = Collection.find(params[:id])
+    # add a pop up confirmation box before deleting
     if logged_in? && current_user.id == @collection.id
       @collection.destroy
       #flash message indicating success

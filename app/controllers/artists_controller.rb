@@ -5,12 +5,23 @@ class ArtistsController < ApplicationController
   end
 
   get '/artists/new' do
+    #users should only be allowed to access this if they are logged in
     erb :'/artists/new_artist'
   end
 
   post '/artists' do
-    #create new artist here if it doesn't already exist
-    redirect to "/artists/#{@artist.slug}"
+    binding.pry
+    @artist = Artist.find_by(name: params[:name])
+    if @artist == nil
+      @artist = Artist.new(name: params[:name], birth_year: params[:year], location: params[:location], movement: params[:movement], alive: params[:alive])
+      if @artist.save
+        redirect to "/artists/#{@artist.slug}"
+      end
+    else
+      # flash msg - that artist already exists
+      # artist page or artists page?
+      redirect to '/artists'
+    end
   end
 
   get '/artists/:slug' do
@@ -26,6 +37,7 @@ class ArtistsController < ApplicationController
   end
 
   get '/artists/:slug/edit' do
+    #users should only be allowed to access this if they are logged in
     @artist = Artist.find_by_slug(params[:slug])
     erb :'/artists/edit_artist'
   end
