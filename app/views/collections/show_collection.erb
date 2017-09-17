@@ -7,19 +7,31 @@
 
 <p>show a single collection with options to delete or edit</p>
 <h1><%=@collection.name%></h1>
+
+<form action="/artworks/new" method="get">
+  <input id="hidden" type="hidden" name="collection_id" value="<%=@collection.id%>">
+  <input class="button" type="submit" value="Add Artwork">
+</form>
+
 <p>
   <small>
+    <!-- edit the collection name? -->
     <form action="/collections/<%=@collection.id%>/edit" method="get">
       <input type="submit" value="Edit">
     </form>
+    <!-- delete the entire collection -->
     <form action="/collections/<%=@collection.id%>/delete" method="post">
       <input id="hidden" type="hidden" name="_method" value="delete">
       <input type="submit" value="Delete">
     </form>
   </small>
 </p>
+<!-- eventually want to have the actions on the same line as the collection name -->
 
 <ul>
+  <!-- add trash cans next to each artwork -->
+  <!-- what controller action and route should handle the removal of a single artwork? -->
+  <!-- does this mean the collection_artwork item gets removed? -->
 <% @collection.artworks.each do |a| %>
     <li><a href="/artworks/<%=a.slug%>"><%=a.name%></a></li>
   <%end%>

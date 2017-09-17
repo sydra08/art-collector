@@ -6,13 +6,6 @@
 </div>
 
 <h1>Edit <%=@collection.name%></h1>
-<!-- don't need to show current works because you'll see it in the list below
-<h4>Current Artworks</h4>
-<ul>
-<% @collection.artworks.each do |a| %>
-    <li><%=a.name%></a></li>
-  <%end%>
-</ul> -->
 
 <form action="/collections/<%=@collection.id%>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">

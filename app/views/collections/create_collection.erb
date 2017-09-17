@@ -11,18 +11,6 @@
 <form action="/collections" method="post">
   <label>Name: </label><input type="text" name="collection[name]" placeholder="my collection">
   <br></br>
-  <!-- <label><strong>Choose an existing artist:</strong></label>
-  <br>
-  <%Artist.all.each do |a|%>
-  <input type="checkbox" name="collection[artist_ids][]" value="<%=a.id%>"><%=a.name%>
-  how do you get this to trigger checking off artworks?
-  <%end%>
-
-  <br></br>
-  <label><strong>and/or, add a new artist:</strong>
-  </label><input type="text" name="artists[]" placeholder="artist name">
-
-  <br></br>-->
 
   <label>Get your collection started by adding artworks from the list below</label>
   <br>
@@ -31,21 +19,6 @@
   <%end%>
 
   <br></br>
-
-  <!-- <h3>Add a new artwork:</h3>
-  <label>name: </label>
-  <input type="text" name="artwork[name]" placeholder="name of artwork"><br>
-  <label>year: </label><input type="text" name="artwork[year]" placeholder="year"><br>
-  <label><strong>artist:</strong>
-  </label><input type="text" name="artwork[artist]" placeholder="artist name"> -->
-  <!-- <label>Artist:</label><br>
-  <input type="radio" name="artist" value="">New Artist <input type="text" name="artist" placeholder="name"><br />
-  <%Artist.all.each do |a|%>
-  <input type="radio" name="artist" value="<%=a.name%>"><%=a.name%></input><br />
-  <%end%>
-
-
-  <br></br> -->
 
   <input type="submit" value="Create Collection">
 </form>

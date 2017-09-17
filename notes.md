@@ -30,14 +30,15 @@
 [ ] browse artworks
     [ ] sort alphabetically?
     [ ] sort by artist?
-[ ] browse artists 
+[ ] browse artists
     [ ] sort alphabetically?
     [ ] sort by number of works?
 [x] create a collection
   [ ] add a name (required)
   [ ] add any existing artworks to your collection
     [ ] if none are chosen should there be a message like "this collection is empty! add some artworks to get started"
-[ ] view a collection
+[ ] view a collection (but also the view that will link to the edit collection functions)
+  [ ] can edit the collection's name => would this just patch to the same route, but only have 1 input field?
   [ ] can remove artworks from a collection on this page (trash icon)
   [ ] button to 'add new artwork'
     [ ] can add ONE from the list of existing artworks
