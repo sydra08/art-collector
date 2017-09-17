@@ -1,3 +1,10 @@
+<div id="navbar">
+  <a href="/artists" class="button">Browse Artists</a>
+  <a href="/artworks" class="button">Browse Artworks</a>
+  <a href="/users/<%=current_user.slug%>" class="button">My Collections</a>
+  <a href="/logout" class="button">Log Out</a>
+</div>
+
 <h1>Add a new artwork</h1>
 
 <form action="/artworks" method="post">
