@@ -15,7 +15,7 @@
 
 <h3>Update Details</h3>
 
-<form action="/artworks/<%=@artwork.slug%>" method="post">
+<form action="/artworks/<%=@artwork.id%>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
 
   <label>Name: </label><input type="text" name="name" placeholder="An Artistic Masterpiece">  <br><br/>

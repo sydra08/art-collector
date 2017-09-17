@@ -17,6 +17,8 @@
 <p><strong>Artist: </strong> <a href="/artists/<%=@artwork.artist.slug%>"><%=@artwork.artist.name%></a></p>
 <p><strong>Year(s): </strong><%=@artwork.year%></p>
 
-<% if logged_in? %>
+<!---
+ <% if logged_in? %>
   <a href="/artworks/<%=@artwork.slug%>/edit">Edit</a>
-<% end %>
+ <% end %>
+--->

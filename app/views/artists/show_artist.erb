@@ -32,6 +32,6 @@
 <p><strong>Artworks</strong></p>
 <ul>
   <% @artist.artworks.each do |a| %>
-    <li> <a href="/artworks/<%=a.slug%>"><%=a.name%></a></li>
+    <li> <a href="/artworks/<%=a.id%>"><%=a.name%></a></li>
   <% end %>
 </ul>
