@@ -14,15 +14,19 @@ class ArtworksController < ApplicationController
   end
 
   post '/artworks' do
+    binding.pry
     @artwork = Artwork.find_by(name: params[:name])
     if @artwork == nil
       @artwork = Artwork.new(name: params[:name], year: params[:year])
       if !params[:artist].empty?
         @artist = Artist.find_or_create_by(name: params[:artist])
-        @artwork.artist = @artist
       end
       if @artwork.save
+        @artist.artworks << @artwork
         redirect to "/artworks/#{@artwork.slug}"
+      else
+        # there was an error processing your request
+        redirect to '/artworks/new'
       end
     else
       # that artwork already exists
@@ -44,7 +48,7 @@ class ArtworksController < ApplicationController
     if !params[:year].empty?
       @artwork.year = params[:year]
     end
-    
+
     @artwork.save
     redirect to "/artworks/#{@artwork.slug}"
   end
