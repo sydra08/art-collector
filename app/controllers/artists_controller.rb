@@ -23,6 +23,7 @@ class ArtistsController < ApplicationController
         @artist.artworks << @artwork
       end
       if @artist.save
+        # what does this do if it doesn't save?
         redirect to "/artists/#{@artist.slug}"
       end
     else
@@ -39,7 +40,7 @@ class ArtistsController < ApplicationController
 
   patch '/artists/:slug' do
     @artist = Artist.find_by_slug(params[:slug])
-    binding.pry
+    # is there a better way to do this?
     if !params[:artist][:name].empty?
       @artist.name = params[:artist][:name]
     end
