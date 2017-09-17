@@ -34,13 +34,14 @@
     [ ] sort alphabetically?
     [ ] sort chronologically?
     [ ] sort by artist?
-    [ ] add an artwork
+    [x] add an artwork
     [ ] edit an artwork
+      [ ] should users be allowed to change the name?
 [ ] browse artists
     [ ] sort alphabetically?
     [ ] sort by number of works?
-    [ ] add an artist
-    [ ] edit an artist
+    [x] add an artist
+    [x] edit an artist
 [x] create a collection
   [ ] add an artist?
     [ ] add more than one new artist?
@@ -67,7 +68,9 @@ Misc
 [ ] add http://google.github.io/material-design-icons/ to fonts (icons)
   [ ] edit = <i class="material-icons">mode_edit</i>
   [ ] delete = <i class="material-icons">delete</i>
-
+[ ] should a user only be able to edit an artist's details but not their artworks?
+[ ] should you be able edit an artwork's artist?
+[ ] consider how changing the name affects the slug?
 
 **Basic Outline of App**
 
