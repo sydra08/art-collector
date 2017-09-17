@@ -38,16 +38,40 @@ class ArtistsController < ApplicationController
   end
 
   patch '/artists/:slug' do
-    # edit artist
     @artist = Artist.find_by_slug(params[:slug])
+    binding.pry
+    if !params[:artist][:name].empty?
+      @artist.name = params[:artist][:name]
+    end
 
+    if !params[:artist][:year].empty?
+      @artist.birth_year = params[:artist][:year]
+    end
+
+    if !params[:artist][:location].empty?
+      @artist.location = params[:artist][:location]
+    end
+
+    if !params[:artist][:movement].empty?
+      @artist.movement = params[:artist][:movement]
+    end
+
+    if !params[:artist][:alive].empty?
+      @artist.alive = params[:artist][:alive]
+    end
+
+    @artist.save
     redirect to "/artists/#{@artist.slug}"
   end
 
   get '/artists/:slug/edit' do
-    #users should only be allowed to access this if they are logged in
-    @artist = Artist.find_by_slug(params[:slug])
-    erb :'/artists/edit_artist'
+    if logged_in?
+      @artist = Artist.find_by_slug(params[:slug])
+      erb :'/artists/edit_artist'
+    else
+      # flash msg - that they need to be logged in to do that
+      redirect to "/artists/#{@artist.slug}"
+    end
   end
 
 end

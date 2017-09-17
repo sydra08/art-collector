@@ -14,9 +14,48 @@
 </ul>
 
 <br/>
-<p><strong>Artworks</strong></p>
+<!-- <p><strong>Artworks</strong></p>
 <ul>
   <% @artist.artworks.each do |a| %>
     <li><%=a.name%></li>
   <% end %>
-</ul>
+</ul> -->
+
+<form action="/artists/<%=@artist.slug%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Update name: </label><input type="text" name="artist[name]" placeholder="<%=@artist.name%>">
+
+  <label>Birth Year: </label><input type="text" name="artist[year]" placeholder="<%=@artist.birth_year%>"><br/>
+
+  <label>Hometown: </label><input type="text" name="artist[location]" placeholder="<%=@artist.location%>"><br/>
+
+  <label>Style/Movement: </label><input type="text" name="artist[movement]" placeholder="<%=@artist.movement%>"><br/>
+
+  <label>Alive?</label>
+
+  <input type="radio" id="true"
+   name="artist[alive]" value="true" <%='checked' if @artist.alive%>>
+  <label for="true">Yes</label>
+
+  <input type="radio" id="false"
+   name="artist[alive]" value="false" <%='checked' if !@artist.alive%>>
+  <label for="false">No</label>
+
+  <br></br>
+<!--
+  <label><strong>Update artworks:</strong></label>
+  <br>
+  <%Artwork.all.each do |a|%>
+  <input type="checkbox" name="artist[artwork_ids][]" value="<%=a.id%>" <%='checked' if @artist.artwork_ids.include?(a.id)%>><%=a.name%></input><br />
+  <%end%>
+
+  <br><br/>
+
+  <label><strong>and/or add an artwork: </strong></label><input type="text" name="artwork[name]" placeholder="name of artwork">
+  <label><strong>year:</strong>
+  </label><input type="text" name="artwork[year]" placeholder="year">
+
+  <br></br> -->
+
+  <input type="submit" value="Update Collection">
+</form>

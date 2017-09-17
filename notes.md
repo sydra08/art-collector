@@ -27,13 +27,20 @@
   [ ] different depending on the page (but in html/css not erb conditionals)?
     (https://github.com/sydra08/exceptional-realty-bootstrapped/blob/master/new-properties.html)
   [x] remove conditionals from the navbar on pages what require the user to be logged in
+  [ ] have different nav bar sections?
+    [ ] actions: new/edit/delete
+    [ ] locations: browse artists/artworks/collections
 [ ] browse artworks
     [ ] sort alphabetically?
     [ ] sort chronologically?
     [ ] sort by artist?
+    [ ] add an artwork
+    [ ] edit an artwork
 [ ] browse artists
     [ ] sort alphabetically?
     [ ] sort by number of works?
+    [ ] add an artist
+    [ ] edit an artist
 [x] create a collection
   [ ] add an artist?
     [ ] add more than one new artist?
@@ -43,6 +50,7 @@
   [ ] if you add an artist to your collection, by default all of the artworks are checked off
 [x] edit a collection (add/remove existing works, update collection name)
 [ ] delete a collection
+  [ ] add a pop up confirmation
 [ ] add flash messages
 [ ] style views
 [ ] decide if i want to have default values for things in tables or just handle another way in erb

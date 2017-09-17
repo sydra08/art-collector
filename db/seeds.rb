@@ -7,7 +7,7 @@ whistler = Artist.create(name: "James Abbott McNeill Whistler", birth_year: 1834
 klimt = Artist.create(name: "Gustav Klimt", birth_year: 1862, movement: "Symbolism", location: "Austrian Emprie", alive: false)
 vaneyck = Artist.create(name: "Jan van Eyck", birth_year: 1399, movement: "Northern Renaissance", location: "The Netherlands", alive: false)
 bosch = Artist.create(name: "Hieronymus Bosch", birth_year: 1450, movement: "Northern Renaissance", location: "The Netherlands", alive: false)
-seurat = Artist.create(name: "Geroges Seurat", birth_year: 1859, movement: "Pointillism", location: "", alive: false)
+seurat = Artist.create(name: "George Seurat", birth_year: 1859, movement: "Pointillism", location: "", alive: false)
 picasso = Artist.create(name: "Pablo Picasso", birth_year: 1881, movement: "Cubism", location: "Spain", alive: false)
 
 # create artworks
