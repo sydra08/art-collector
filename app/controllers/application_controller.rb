@@ -1,7 +1,7 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
-
+  use Rack::Flash
   configure do
     enable :sessions
     set :session_secret, "artisthebest"
@@ -22,5 +22,5 @@ class ApplicationController < Sinatra::Base
       !!session[:user_id]
     end
   end
-  
+
 end
