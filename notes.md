@@ -1,7 +1,7 @@
 **TO DO**
 [x] create migrations
 [x] manually add seed data
-[ ] scrape wikipedia for artists and artworks (for seed data?)
+*[ ] scrape wikipedia for artists and artworks (for seed data?)*
 [x] create models
 [x] set up model relationships and validations
 [x] test models via tux
@@ -19,7 +19,7 @@
   [x] user auth for individual pages
     [x] view a collection
     [x] users can only view/edit their own collections
-[ ] nav bar
+*[ ] nav bar*
   [x] signup/login/logout
   [x] view artists
   [x] view artworks
@@ -27,39 +27,47 @@
   [ ] different depending on the page (but in html/css not erb conditionals)?
     (https://github.com/sydra08/exceptional-realty-bootstrapped/blob/master/new-properties.html)
   [x] remove conditionals from the navbar on pages what require the user to be logged in
-[ ] browse artworks
+*[ ] browse artworks*
     [ ] sort alphabetically?
     [ ] sort by artist?
-[ ] browse artists
+*[ ] browse artists*
     [ ] sort alphabetically?
     [ ] sort by number of works?
 [x] create a collection
-  [ ] add a name (required)
-  [ ] add any existing artworks to your collection
-    [ ] if none are chosen should there be a message like "this collection is empty! add some artworks to get started"
+  [x] add a name (required)
+  [x] add any existing artworks to your collection
+    *[ ] if none are chosen should there be a message like "this collection is empty! add some artworks to get started"*
 [ ] view a collection (but also the view that will link to the edit collection functions)
-  [ ] can edit the collection's name => would this just patch to the same route, but only have 1 input field?
+  *[ ] can edit the collection's name => would this just patch to the same route, but only have 1 input field?*
   [x] can remove artworks from a collection on this page (trash icon)
   [x] button to 'add new artwork'
-    [ ] can add ONE from the list of existing artworks
+    *[ ] can add ONE from the list of existing artworks*
     [x] OR can add/create a new artwork
       [x] field for name (required)
       [x] field for year (optional)
       [x] field for artist
         [x] can choose from list of existing artists or create a new artist (only by name)
           [ ] make it so that if the "Other" option is selected then the name is required for the artist
-        [ ] should artworks be required to have an artist? or should there be a default value of "unknown"
-      [ ] if an artwork starts with the word "the" you can run a search for it with and without the "the"
-[x] edit a collection (add/remove existing works, update collection name)
+        *[ ] should artworks be required to have an artist? or should there be a default value of "unknown"*
+      *[ ] if an artwork starts with the word "the" you can run a search for it with and without the "the"
+[x] edit a collection (add/remove existing works, update collection name)*
 [ ] delete a collection
-  [ ] add a pop up confirmation
+  *[ ] add a pop up confirmation*
 [ ] add error messages
-  [ ] look into AR validation messages http://edgeguides.rubyonrails.org/active_record_validations.html
+  *[ ] look into AR validation messages http://edgeguides.rubyonrails.org/active_record_validations.html*
   [ ] flash messages
-[ ] input validations
+    [x] add flash messages to controllers
+    *[ ] flash messages don't always show up properly...does this have to do with when there are multiple in a route or page?*
+    [ ] maybe have standard flash messages that correspond to different actions?
+      [ ] flash[:success] = "Action successful"
+      [ ] flash[:failure] = "Unable to do that thing"
+      [ ] flash[:auth] = "You must be logged in to do that"
+      [ ] flash[:intruder] = "You cannot edit another user's collection"
+    [ ] have flash messages that are determined based on the error message from the object?
+*[ ] input validations*
   [ ] when a user adds an artwork, should they be able to add "Mona Lisa" if "The Mona Lisa" exists?
 [ ] maybe remove the 'browse artist' view for now?
-[ ] style views
+*[ ] style views*
 [ ] decide if i want to have default values for things in tables or just handle another way in erb
 
 Misc
@@ -76,12 +84,17 @@ Misc
   [ ] delete = <i class="material-icons">delete</i>
 <!-- [ ] should a user only be able to edit an artist's details but not their artworks?
 [ ] should you be able edit an artwork's artist? -->
-[ ] consider how changing the name affects the slug?
-[ ] reset database and re-seed before submitting
+[ ] should ids or slugs be used => is it bad practice to expose the id of an object?
 [ ] when you're creating a collection should you be able to select from a dropdown menu?
 [ ] review all of the messages/verbiage before submitting
 [ ] how can I make it so that form button look prettier
-[ ] flash messages don't always show up properly...does this have to do with when there are multiple in a route or page?
+[ ] figure out how to replace the form buttons with other icons
+
+Required for go live
+[ ] reset database and re-seed before submitting
+[ ] write out a test spec?
+[ ] readme.md
+[ ] fill out spec.md
 
 Enhancements/Improvements for a later iteration
 + if you add an artist to your collection, by default all of the artworks are checked off
