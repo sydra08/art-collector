@@ -79,6 +79,7 @@ Misc
 [ ] reset database and re-seed before submitting
 [ ] when you're creating a collection should you be able to select from a dropdown menu?
 [ ] review all of the messages/verbiage before submitting
+[ ] how can I make it so that form button look prettier
 
 Enhancements/Improvements for a later iteration
 + if you add an artist to your collection, by default all of the artworks are checked off

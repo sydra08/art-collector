@@ -48,4 +48,20 @@ class ArtworksController < ApplicationController
    erb :'/artworks/show_artwork'
  end
 
+ delete '/artworks/:id/remove' do
+  #  removes an artwork from a collection
+  @collection = Collection.find(params[:collection_id])
+  @artwork = Artwork.find(params[:id])
+  binding.pry
+  if current_user.collection_ids.include?(@collection.id)
+    # if the collection belongs to the user
+    @collection.artworks.delete(@artwork)
+    # deletes it from the collection but not the database
+    redirect to "/collections/#{@collection.id}"
+  else
+    # you cannot remove an artwork from someone else's collection
+    redirect to "/users/#{current_user.slug}"
+  end
+ end
+
 end
