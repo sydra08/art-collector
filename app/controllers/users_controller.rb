@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect to "/users/#{@user.slug}"
     else
-      # add flash message here about invalid registration
+      flash[:message] = "Unable to register you. Please try again"
       redirect to '/signup'
     end
   end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect to "/users/#{@user.slug}"
     else
-      # add flash message here about failed login
+      flash[:message] = "Login failed. Please try again"
       redirect to '/login'
     end
   end
@@ -41,10 +41,10 @@ class UsersController < ApplicationController
   get '/logout' do
     if logged_in?
       session.destroy
-      # logout success
+      flash[:message] = "Successfully logged out"
       redirect to '/login'
     else
-      # you must be logged in to do that
+      flash[:message] = "You must be logged in to do that"
       redirect to '/'
     end
   end

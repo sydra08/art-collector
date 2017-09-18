@@ -4,7 +4,7 @@ class CollectionsController < ApplicationController
     if logged_in?
       erb :'/collections/create_collection'
     else
-      # you must be logged in to do that
+      flash[:message] = "You must be logged in to do that"
       redirect '/login'
     end
   end
@@ -24,10 +24,10 @@ class CollectionsController < ApplicationController
 
     if @collection.save
       current_user.collections << @collection
-      # success
+      flash[:message] = "Successfully created collection"
       redirect to "/collections/#{@collection.id}"
     else
-      #unable to create collection
+      flash[:message] = "Unable to create collection"
       redirect to "/collections/#{@collection.id}"
     end
   end
@@ -58,10 +58,10 @@ class CollectionsController < ApplicationController
     # add a pop up confirmation box before deleting
     if logged_in? && current_user.id == @collection.id
       @collection.destroy
-      #flash message indicating success
+      flash[:message] = "Collection deleted"
       redirect to "/users/#{@user.slug}"
     else
-      #flash message - you can't delete other people's collections
+      flash[:message] = "You cannot edit another user's collection"
       redirect to '/'
     end
   end

@@ -39,22 +39,23 @@
     [ ] if none are chosen should there be a message like "this collection is empty! add some artworks to get started"
 [ ] view a collection (but also the view that will link to the edit collection functions)
   [ ] can edit the collection's name => would this just patch to the same route, but only have 1 input field?
-  [ ] can remove artworks from a collection on this page (trash icon)
-  [ ] button to 'add new artwork'
+  [x] can remove artworks from a collection on this page (trash icon)
+  [x] button to 'add new artwork'
     [ ] can add ONE from the list of existing artworks
-    [ ] OR can add/create a new artwork
-      [ ] field for name (required)
-      [ ] field for year (optional)
-      [ ] field for artist
-        [ ] can choose from list of existing artists or create a new artist
+    [x] OR can add/create a new artwork
+      [x] field for name (required)
+      [x] field for year (optional)
+      [x] field for artist
+        [x] can choose from list of existing artists or create a new artist (only by name)
+          [ ] make it so that if the "Other" option is selected then the name is required for the artist
         [ ] should artworks be required to have an artist? or should there be a default value of "unknown"
-  [ ] add an artwork
-    [ ] if an artwork starts with the word "the" you can run a search for it with and without the "the"
+      [ ] if an artwork starts with the word "the" you can run a search for it with and without the "the"
 [x] edit a collection (add/remove existing works, update collection name)
 [ ] delete a collection
   [ ] add a pop up confirmation
 [ ] add error messages
   [ ] look into AR validation messages http://edgeguides.rubyonrails.org/active_record_validations.html
+  [ ] flash messages
 [ ] input validations
   [ ] when a user adds an artwork, should they be able to add "Mona Lisa" if "The Mona Lisa" exists?
 [ ] maybe remove the 'browse artist' view for now?
@@ -80,6 +81,7 @@ Misc
 [ ] when you're creating a collection should you be able to select from a dropdown menu?
 [ ] review all of the messages/verbiage before submitting
 [ ] how can I make it so that form button look prettier
+[ ] flash messages don't always show up properly...does this have to do with when there are multiple in a route or page?
 
 Enhancements/Improvements for a later iteration
 + if you add an artist to your collection, by default all of the artworks are checked off
