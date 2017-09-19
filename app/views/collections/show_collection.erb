@@ -8,23 +8,21 @@
 <p>show a single collection with options to delete or edit</p>
 <h1><%=@collection.name%></h1>
 
-<form action="/artworks/new" method="get">
-  <input class="button" type="submit" value="Add Artwork">
-</form>
-
-<p>
-  <small>
-    <!-- edit the collection name? -->
-    <form action="/collections/<%=@collection.id%>/edit" method="get">
-      <input type="submit" value="Edit">
-    </form>
-    <!-- delete the entire collection -->
-    <form action="/collections/<%=@collection.id%>/delete" method="post">
-      <input id="hidden" type="hidden" name="_method" value="delete">
-      <input type="submit" value="Delete">
-    </form>
-  </small>
-</p>
+<div>
+  <!-- add new artwork to collection -->
+  <form action="/artworks/new" method="get">
+    <input class="button" type="submit" value="Add Artwork">
+  </form>
+  <!-- edit the collection name? -->
+  <form action="/collections/<%=@collection.id%>/edit" method="get">
+    <input class="button" type="submit" value="Edit Name">
+  </form>
+  <!-- delete the entire collection -->
+  <form action="/collections/<%=@collection.id%>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input class="button" type="submit" value="Delete Collection">
+  </form>
+</div>
 <!-- eventually want to have the actions on the same line as the collection name -->
 
 <ul>
