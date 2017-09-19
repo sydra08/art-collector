@@ -12,13 +12,5 @@
   <label>Update name: </label><input type="text" name="collection[name]" placeholder="my collection">
   <br></br>
 
-  <label><strong>Update artworks:</strong></label>
-  <br>
-  <%Artwork.all.each do |a|%>
-  <input type="checkbox" name="collection[artwork_ids][]" value="<%=a.id%>" <%='checked' if @collection.artwork_ids.include?(a.id)%>><%=a.name%></input><br />
-  <%end%>
-
-  <br></br>
-
   <input type="submit" value="Update Collection">
 </form>
