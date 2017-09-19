@@ -34,6 +34,9 @@ class CollectionsController < ApplicationController
 
   get '/collections/:id' do
     @collection = Collection.find(params[:id])
+    session[:collection] = @collection.id
+    # anytime a user visits one of their collections, the session[:collection] value is reset
+    # need to add more validations around the collection belonging to the user since the info is in the session
     erb :'/collections/show_collection'
   end
 

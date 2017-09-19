@@ -89,6 +89,7 @@ Misc
 [ ] review all of the messages/verbiage before submitting
 [ ] how can I make it so that form button look prettier
 [ ] figure out how to replace the form buttons with other icons
+[ ] research what the best way to pass information between views/routes is and not stuff from user input. should you still use params?
 
 Required for go live
 [ ] reset database and re-seed before submitting

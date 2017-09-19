@@ -5,8 +5,9 @@ class ArtworksController < ApplicationController
   end
 
   post '/artworks' do
-    # binding.pry
-    @collection = Collection.find(params[:collection_id])
+    binding.pry
+    @collection = Collection.find(session[:collection])
+    # @collection = Collection.find(params[:collection_id])
     @artwork = Artwork.find_by(name: params[:name])
     # the search should be case insensitive
     # the search could also treat names that start with "the" to be the same
@@ -27,8 +28,6 @@ class ArtworksController < ApplicationController
         redirect to '/artworks/new'
       end
     else
-      raise params.inspect
-      # that artwork already exists
       # redirect back to the collection you were looking at? or just back to the new artwork page?
       flash[:message] = "That artwork already exists"
       redirect to "/collections/#{@collection.id}"
@@ -37,7 +36,9 @@ class ArtworksController < ApplicationController
 
  get '/artworks/new' do
   if logged_in?
-    @collection = Collection.find(params[:collection_id])
+    binding.pry
+    @collection = Collection.find(session[:collection])
+    # @collection = Collection.find(params[:collection_id])
     if current_user.collection_ids.include?(@collection.id)
       erb :'/artworks/new_artwork'
     else
@@ -57,9 +58,11 @@ class ArtworksController < ApplicationController
 
  delete '/artworks/:id/remove' do
   #  removes an artwork from a collection
-  @collection = Collection.find(params[:collection_id])
-  @artwork = Artwork.find(params[:id])
   binding.pry
+  @collection = Collection.find(session[:collection])
+  # @collection = Collection.find(params[:collection_id])
+  @artwork = Artwork.find(params[:id])
+  # binding.pry
   if current_user.collection_ids.include?(@collection.id)
     # if the collection belongs to the user
     @collection.artworks.delete(@artwork)

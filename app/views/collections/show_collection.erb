@@ -9,7 +9,7 @@
 <h1><%=@collection.name%></h1>
 
 <form action="/artworks/new" method="get">
-  <input id="hidden" type="hidden" name="collection_id" value="<%=@collection.id%>">
+  <!-- <input id="hidden" type="hidden" name="collection_id" value="<%=@collection.id%>"> -->
   <input class="button" type="submit" value="Add Artwork">
 </form>
 
@@ -36,7 +36,7 @@
     <li><a href="/artworks/<%=a.id%>"><%=a.name%></a></li>
     <form action="/artworks/<%=a.id%>/remove" method="post">
       <input id="hidden" type="hidden" name="_method" value="delete">
-      <input id="hidden" type="hidden" name="collection_id" value="<%=@collection.id%>">
+      <!-- <input id="hidden" type="hidden" name="collection_id" value="<%=@collection.id%>"> -->
       <input type="submit" value="remove from collection">
     </form>
   <%end%>
