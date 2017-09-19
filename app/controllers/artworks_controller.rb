@@ -7,7 +7,6 @@ class ArtworksController < ApplicationController
   post '/artworks' do
     binding.pry
     @collection = Collection.find(session[:collection])
-    # @collection = Collection.find(params[:collection_id])
     @artwork = Artwork.find_by(name: params[:name])
     # the search should be case insensitive
     # the search could also treat names that start with "the" to be the same
@@ -38,7 +37,6 @@ class ArtworksController < ApplicationController
   if logged_in?
     binding.pry
     @collection = Collection.find(session[:collection])
-    # @collection = Collection.find(params[:collection_id])
     if current_user.collection_ids.include?(@collection.id)
       erb :'/artworks/new_artwork'
     else
@@ -60,9 +58,7 @@ class ArtworksController < ApplicationController
   #  removes an artwork from a collection
   binding.pry
   @collection = Collection.find(session[:collection])
-  # @collection = Collection.find(params[:collection_id])
   @artwork = Artwork.find(params[:id])
-  # binding.pry
   if current_user.collection_ids.include?(@collection.id)
     # if the collection belongs to the user
     @collection.artworks.delete(@artwork)
