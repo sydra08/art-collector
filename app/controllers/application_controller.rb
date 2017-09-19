@@ -21,6 +21,15 @@ class ApplicationController < Sinatra::Base
     def logged_in?
       !!session[:user_id]
     end
+
+    def current_collection
+      @current_collection ||= Collection.find(session[:collection])
+    end
+
+    def user_collection_valid?
+      # checks if the collection belongs to the current user
+      current_user.collection_ids.include?(current_collection.id)
+    end
   end
 
 end
