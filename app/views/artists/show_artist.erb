@@ -11,27 +11,12 @@
   <% end %>
 </div>
 
-<p>show a single artist and all of their artworks in the db that links to the artwork show page</p>
-
 <h1><%=@artist.name%></h1>
 
-<!-- add a box around the important info  -->
-<ul>
-  <li>Born <%=@artist.birth_year%>,
-    <%if @artist.alive%>
-      Alive
-    <%else%>
-      Deceased
-    <%end%>
-  </li>
-  <li><%=@artist.location%></li>
-  <li>Style/Movement: <%=@artist.movement%></li>
-</ul>
+<h4>Artworks</h4>
 
-<br/>
-<p><strong>Artworks</strong></p>
 <ul>
   <% @artist.artworks.each do |a| %>
-    <li> <a href="/artworks/<%=a.id%>"><%=a.name%></a></li>
+    <li> <a href="/artworks/<%=a.id%>"><%=a.name%>, <%=a.year%></a></li>
   <% end %>
 </ul>
