@@ -1,21 +1,37 @@
 <h1>Add a new artwork to your collection</h1>
+<br><br/>
 
 <form action="/artworks" method="post">
-  <!-- <%Artwork.all.each do |a|%>
-  <input type="radio" name="collection[artwork_ids][]" value="<%=a.id%>"> <%=a.name%><br />
-  <%end%> -->
 
-  <label>Name: </label><input type="text" name="name" placeholder="An Artistic Masterpiece" required>  <br><br/>
+  <label><strong>Choose from existing artworks or add a new one:</strong></label><br><br/>
+  <select name='artwork_name' type='text'>
+    <% @new_artworks.each do |a| %>
+      <option value="<%=a.name%>"> <%=a.name%> </option>
+    <% end %>
+    <option value="new_artwork"> New Artwork </option>
+  </select>
 
-  <label>Year: </label><input type="text" name="year" placeholder="1970"><br/>
+  <br><br/>
+
+  <p>If "New Artwork" then please enter in the following information:</p>
+    <label>Name: </label><input type="text" name="artwork_name" placeholder="name">
+    <label>Year: </label><input type="text" name="artwork_year" placeholder="1970">
 
   <br><br/>
 
   <label><strong>Choose an artist:</strong></label><br><br/>
-  <input type="radio" name="artist" value="">New Artist <input type="text" name="artist" placeholder="name"><br />
-  <%Artist.all.each do |a|%>
-  <input type="radio" name="artist" value="<%=a.name%>"><%=a.name%></input><br />
-  <%end%>
+  <select name='artist' type='text'>
+    <%Artist.all.each do |a|%>
+      <option value="<%=a.name%>"> <%=a.name%> </option>
+    <% end %>
+    <option value="unknown"> Unkonwn </option>
+    <option value="new_artist"> New Artist </option>
+  </select>
+
+  <br><br/>
+
+  <p>If "New Artist" then please enter in the following information</p>
+  <label>Name: </label> <input type="text" name="artist" placeholder="name">
 
   <br><br/>
 
