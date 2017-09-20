@@ -4,34 +4,33 @@
 <form action="/artworks" method="post">
 
   <label><strong>Choose from existing artworks or add a new one:</strong></label><br><br/>
-  <select name='artwork_name' type='text'>
+  <select name="artwork" type="text">
+    <option disabled selected value> -- select an artwork -- </option>
     <% @new_artworks.each do |a| %>
       <option value="<%=a.name%>"> <%=a.name%> </option>
     <% end %>
-    <option value="new_artwork"> New Artwork </option>
   </select>
 
   <br><br/>
 
-  <p>If "New Artwork" then please enter in the following information:</p>
+  <p>If you would like to add a new artwork then please enter in the following information:</p>
     <label>Name: </label><input type="text" name="artwork_name" placeholder="name">
     <label>Year: </label><input type="text" name="artwork_year" placeholder="1970">
 
   <br><br/>
 
   <label><strong>Choose an artist:</strong></label><br><br/>
-  <select name='artist' type='text'>
+  <select name="artist" type='text'>
+    <option disabled selected value> -- select an artist -- </option>
     <%Artist.all.each do |a|%>
       <option value="<%=a.name%>"> <%=a.name%> </option>
     <% end %>
-    <option value="unknown"> Unkonwn </option>
-    <option value="new_artist"> New Artist </option>
   </select>
 
   <br><br/>
 
-  <p>If "New Artist" then please enter in the following information</p>
-  <label>Name: </label> <input type="text" name="artist" placeholder="name">
+  <p>If you cannot find the artist you are looking for then please add them below:</p>
+  <label>Name: </label> <input type="text" name="artist_name" placeholder="name">
 
   <br><br/>
 

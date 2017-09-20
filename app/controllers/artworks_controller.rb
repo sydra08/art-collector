@@ -7,21 +7,33 @@ class ArtworksController < ApplicationController
   post '/artworks' do
     binding.pry
     if user_collection_valid?
-      @artwork = Artwork.find_or_create_by(name: params[:name], year: params[:year])
-      # the search could also treat names that start with "the" to be the same
-      if !params[:artist].empty?
-        # might make this a required field
-        # may also add an "unknown" option which allows you to bypass the requirement?
-        @artist = Artist.find_or_create_by(name: params[:artist])
+
+      if !params[:artist_name].empty?
+        @artist = Artist.find_or_create_by(name: params[:artist_name])
         if @artist.invalid?
           flash[:message] = "There was an error processing your request: #{@artist.errors[:name][0]}"
           redirect to '/artworks/new'
         end
+      elsif !params[:artist].empty? && params[:artist] != "unknown"
+        @artist = Artist.find_or_create_by(name: params[:artist])
       end
+
+      if !params[:artwork_name].empty?
+        @artwork = Artwork.find_or_create_by(name: params[:artwork_name], year: params[:artwork_year])
+      else
+        @artwork = Artwork.find_or_create_by(name: params[:artwork])
+      end
+      # the search could also treat names that start with "the" to be the same
       if @artwork.valid?
-        @artist.artworks << @artwork
+        if @artist != nil && @artwork.artist != @artist
+          # this needs to be fixed so that you look for the artist
+          flash[:message] = "Sorry, you cannot change the artist of an existing artwork"
+          redirect to '/artworks/new'
+        elsif @artist != nil
+          @artist.artworks << @artwork
+        end
         current_collection.artworks << @artwork
-        # but maybe you want to add the artwork in a better way so that the system isn't holding onto the whole list that gets returned...maybe custom method?
+        current_collection.save
         flash[:message] = "#{@artwork.name} was successfully added to your collection"
         redirect to "/collections/#{current_collection.id}"
       else
@@ -37,6 +49,7 @@ class ArtworksController < ApplicationController
  get '/artworks/new' do
   if logged_in?
     if user_collection_valid?
+      @new_artworks =  Artwork.all.select{|a| !current_collection.artworks.include?(a)}
       erb :'/artworks/new_artwork'
     else
       flash[:message] = "You cannot edit someone else's collection"
