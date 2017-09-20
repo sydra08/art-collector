@@ -59,7 +59,7 @@ class ArtworksController < ApplicationController
     # if the collection belongs to the user
     current_collection.artworks.delete(@artwork)
     # deletes it from the collection but not the database
-    flash[:message] = "Artwork successfully removed from your collection"
+    flash[:message] = "#{@artwork.name} successfully removed from your collection"
     redirect to "/collections/#{current_collection.id}"
   else
     flash[:message] = "You cannot edit someone else's collection"
