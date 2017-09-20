@@ -4,5 +4,5 @@ class Artwork < ActiveRecord::Base
 
   belongs_to :artist
   validates :name, presence: true
-  validates_uniqueness_of :name, :case_sensitive => false
+  validates_uniqueness_of :name, :case_sensitive => false, :message => "An artwork with that name already exists"
 end
