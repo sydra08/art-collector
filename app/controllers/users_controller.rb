@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   get '/signup' do
+    # raise session.inspect
     if logged_in?
       redirect to '/login'
     else
