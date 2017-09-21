@@ -14,7 +14,7 @@
 <p>show all artworks in the database with a link to the individual show page - right now if an artist name is empty then the page breaks</p>
 
 <ul>
-  <% Artwork.all.each do |a| %>
+  <% Artwork.all.sort_by{|a| a.name}.each do |a| %>
     <li><a href="/artworks/<%=a.id%>"><%=a.name%></a></li>
   <%end%>
 </ul>
