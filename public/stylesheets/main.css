@@ -178,7 +178,7 @@ div.alert {
 /*---Action Bar---*/
 
 #actionbar {
-  position: float;
+  position: relative;
   top: 0;
   left: 0;
   /*width: 100%;*/
