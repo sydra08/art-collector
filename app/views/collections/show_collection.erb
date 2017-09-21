@@ -30,10 +30,14 @@
   <!-- what controller action and route should handle the removal of a single artwork? -->
   <!-- does this mean the collection_artwork item gets removed? -->
 <% @collection.artworks.each do |a| %>
-    <li><a href="/artworks/<%=a.id%>"><%=a.name%></a></li>
-    <form action="/artworks/<%=a.id%>/remove" method="post">
-      <input id="hidden" type="hidden" name="_method" value="delete">
-      <input type="submit" value="remove from collection">
+    <li>
+      <a href="/artworks/<%=a.id%>"><%=a.name%></a>
+      <form class="action" action="/artworks/<%=a.id%>/remove" method="post">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <button type="submit" class="icon-button">
+          <i class="material-icons">delete</i>
+        </button>
+    </li>
     </form>
   <%end%>
 </ul>

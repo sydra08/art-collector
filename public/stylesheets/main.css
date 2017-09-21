@@ -132,6 +132,15 @@
   border: none;
   background: none;
 }
+
+i.material-icons {
+  font-size: 18px;
+}
+
+form.action {
+  display: inline;
+}
+
 /*---Nav Bar---*/
 
 #navbar {
