@@ -1,8 +1,12 @@
 <div id="navbar">
   <a href="/artists" class="button">Browse Artists</a>
   <a href="/artworks" class="button">Browse Artworks</a>
-  <a href="/collections/new" class="button">New Collection</a>
+  <a href="/users/<%=current_user.slug%>" class="button active">My Collections</a>
   <a href="/logout" class="button">Log Out</a>
+</div>
+
+<div id="actionbar">
+  <a href="/collections/new" class="button">New Collection</a>
 </div>
 
 <h1>Welcome <%=current_user.username%>!</h1>
