@@ -1,7 +1,5 @@
 <h1>Add an artwork to your collection</h1>
 <br>
-<p>If you wish to add an existing artwork to our collection, please select one from the drop down menu below.<br>
-  Otherwise, please fill out the information to add a new artwork to the community database and your collection.</p>
 
 <h3>Choose an existing artwork</h3>
 <form action="/artworks" method="post">
@@ -17,18 +15,17 @@
 
 <br>
 
-<h3>Or if you would like to add a new artwork then please enter in the following information:</h3>
+<h3>Or add a new artwork:</h3>
 <form action="/artworks" method="post">
   <input type="hidden" name="artwork_id" value="">
   <label>Name: </label><input type="text" name="artwork[name]" placeholder="The Fountain" required> <br>
   <label>Year(s): </label><input type="text" name="artwork[year]" placeholder="1970-1972"> <br>
   <label>Artist: </label> <input type="text" name="artwork[artist]" placeholder="Caravaggio"> or
-  <select name="artwork[artist]" type='text'>
+  <select name="artwork[artist]" type="text">
     <option disabled selected value> -- select an artist -- </option>
     <%Artist.all.each do |a|%>
       <option value="<%=a.name%>"> <%=a.name%> </option>
-    <% end %>
-    <option value="Unknown"> Unknown </option>
+    <%end%>
   </select>
 
   <input type="submit" value="Add Artwork">
