@@ -6,23 +6,30 @@ class ArtworksController < ApplicationController
 
   post '/artworks' do
     if user_collection_valid?
-      binding.pry
       if !params[:artwork_id].empty?
-        @artwork = Artwork.find(params[:artwork_id])
-        current_collection.artworks << @artwork
 
-        flash[:message] = "#{@artwork.name} was successfully added to your collection"
-        redirect to "/collections/#{current_collection.id}"
+        @artwork = Artwork.find(params[:artwork_id])
+        if !current_collection.artwork_ids.include?(@artwork)
+          current_collection.artworks << @artwork
+
+          flash[:message] = "#{@artwork.name} was successfully added to your collection"
+          redirect to "/collections/#{current_collection.id}"
+        else
+          flash[:message] = "#{@artwork.name} is already in your collection"
+          redirect to "/collections/#{current_collection.id}"
+        end
+
       elsif !params[:artwork].empty?
-        binding.pry
+
         @artwork = Artwork.find_or_create_by(name: params[:artwork][:name]) do |a|
           a.year = params[:artwork][:year] unless params[:artwork][:year] == ""
         end
 
         if !params[:artwork][:artist].empty?
           @artist = Artist.find_or_create_by(name: params[:artwork][:artist])
-          if @artist.invalid?
+          if @artist.invalid? || (@artwork.artist != @artist && @artwork.artist != nil)
             flash[:message] = "There was an error processing your request: #{@artist.errors[:name][0]}"
+            # add error in for if you try to edit an already created artwork
             redirect to '/artworks/new'
           end
           @artist.artworks << @artwork
