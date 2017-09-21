@@ -180,11 +180,13 @@ div.alert {
 #actionbar {
   position: relative;
   top: 0;
-  left: 0;
-  /*width: 100%;*/
+  display: inline-block;
   z-index: 2;
-  text-align: right;
-  /*border-bottom: 1px solid #ccc;*/
-  padding: 3px;
-  /*margin: 16px auto;*/
+  text-align: left;
+  float: right;
+  /*padding: 0px 0px 5px 0px;*/
+}
+
+#title {
+  float: left;
 }

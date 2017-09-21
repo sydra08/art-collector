@@ -6,33 +6,74 @@
 </div>
 
 <p>show a single collection with options to delete or edit</p>
-<h1><%=@collection.name%></h1>
+
+
+<!-- <div id="actionbar">
+  <table>
+    <tr>
+      <td>
+        <h1><%=@collection.name%></h1>
+      </td>
+      <td>
+        <form action="/artworks/new" method="get">
+          <button type="submit" class="icon-button">
+            <i class="material-icons">add</i><strong>Add Artwork</strong>
+          </button>
+        </form>
+      </td>
+      <td>
+        <form action="/collections/<%=@collection.id%>/edit" method="get">
+          <button type="submit" class="icon-button">
+            <i class="material-icons">mode_edit</i><strong>Edit Name</strong>
+          </button>
+        </form>
+      </td>
+      <td>
+        <form action="/collections/<%=@collection.id%>/delete" method="post">
+          <input id="hidden" type="hidden" name="_method" value="delete">
+          <button type="submit" class="icon-button">
+            <i class="material-icons">delete</i><strong>Delete Collection</strong>
+          </button>
+        </form>
+      </td>
+    </tr>
+  </table>
+</div> -->
+<h1 class="title"><%=@collection.name%></h1>
 
 <div id="actionbar">
-  <!-- add new artwork to collection -->
-  <form action="/artworks/new" method="get">
-    <button type="submit" class="icon-button">
-      <i class="material-icons">add</i><strong>Add Artwork</strong>
-    </button>
-  </form>
-  <!-- edit the collection name? -->
-  <form action="/collections/<%=@collection.id%>/edit" method="get">
-    <button type="submit" class="icon-button">
-      <i class="material-icons">mode_edit</i><strong>Edit Name</strong>
-    </button>
-  </form>
-  <!-- delete the entire collection -->
-  <form action="/collections/<%=@collection.id%>/delete" method="post">
-    <input id="hidden" type="hidden" name="_method" value="delete">
-    <button type="submit" class="icon-button">
-      <i class="material-icons">delete</i><strong>Delete Collection</strong>
-    </button>
-  </form>
+  <table>
+    <tr>
+      <td>
+        <form action="/artworks/new" method="get">
+          <button type="submit" class="icon-button">
+            <i class="material-icons">add</i><strong>Add Artwork</strong>
+          </button>
+        </form>
+      </td>
+      <td>
+        <form action="/collections/<%=@collection.id%>/edit" method="get">
+          <button type="submit" class="icon-button">
+            <i class="material-icons">mode_edit</i><strong>Edit Name</strong>
+          </button>
+        </form>
+      </td>
+      <td>
+        <form action="/collections/<%=@collection.id%>/delete" method="post">
+          <input id="hidden" type="hidden" name="_method" value="delete">
+          <button type="submit" class="icon-button">
+            <i class="material-icons">delete</i><strong>Delete Collection</strong>
+          </button>
+        </form>
+      </td>
+    </tr>
+  </table>
 </div>
+
+<!-- need to figure out how to align the edit buttons on the RHS of the page -->
 <!-- eventually want to have the actions on the same line as the collection name -->
 
 <ul>
-  <!-- add trash cans next to each artwork -->
   <!-- what controller action and route should handle the removal of a single artwork? -->
   <!-- does this mean the collection_artwork item gets removed? -->
 <% @collection.artworks.each do |a| %>
