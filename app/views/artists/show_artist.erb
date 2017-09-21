@@ -17,6 +17,6 @@
 
 <ul>
   <% @artist.artworks.each do |a| %>
-    <li> <a href="/artworks/<%=a.id%>"><%=a.name%>, <%=a.year%></a></li>
+    <li> <a href="/artworks/<%=a.id%>"><%=a.name%></a> <%=a.year unless a.year == ""%></li>
   <% end %>
 </ul>
