@@ -114,7 +114,7 @@
   }
 }
 
-/*---Nav Bar---*/
+/*---Buttons---*/
 .button {
   background-color: rgb(51, 51, 51);
   border: none;
@@ -127,6 +127,12 @@
   margin: 0px 2px;
   cursor: pointer;
 }
+
+.icon-button {
+  border: none;
+  background: none;
+}
+/*---Nav Bar---*/
 
 #navbar {
   position: float;
