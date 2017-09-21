@@ -152,6 +152,14 @@
   text-decoration: underline;
 }*/
 
+/*---Flash Messages---*/
+div.alert {
+  color: red;
+  text-decoration: none;
+  display: inline;
+  /*position: float;*/
+}
+
 /*---Action Bar---*/
 
 #actionbar {

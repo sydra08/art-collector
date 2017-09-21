@@ -10,18 +10,19 @@
   <title>ArtCollector</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <link rel="stylesheet" href="/stylesheets/main.css" />
 </head>
 <body>
   <div class="wrapper">
-    <p style="color: red">
-      <em>
-        <% if flash.has?(:message) %>
-          <%= flash[:message] %>
-        <% end %>
-      </em>
-    </p>
+    <% if flash.has?(:message) %>
+      <div class="alert">
+        <p>
+          <em>
+            <%= flash[:message] %>
+          </em>
+        </p>
+      </div>
+    <% end %>
 
       <%= yield %>
 
@@ -31,6 +32,7 @@
   </div>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  </body>
   <!--[if lt IE 7]>
     <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
     <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
