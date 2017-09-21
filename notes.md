@@ -27,21 +27,21 @@
   [ ] different depending on the page (but in html/css not erb conditionals)?
     (https://github.com/sydra08/exceptional-realty-bootstrapped/blob/master/new-properties.html)
   [x] remove conditionals from the navbar on pages what require the user to be logged in
-*[ ] browse artworks*
-    [ ] sort alphabetically?
+[x] browse artworks
+    [x] sort alphabetically?
     [ ] sort by artist?
-*[ ] browse artists*
+[x] browse artists
     [ ] sort alphabetically?
-    [ ] sort by number of works?
+    [x] sort by number of works?
 [x] create a collection
   [x] add a name (required)
   [x] add any existing artworks to your collection
-    *[ ] if none are chosen should there be a message like "this collection is empty! add some artworks to get started"*
+    [x] if none are chosen should there be a message like "this collection is empty! add some artworks to get started"
 [ ] view a collection (but also the view that will link to the edit collection functions)
   *[ ] can edit the collection's name => would this just patch to the same route, but only have 1 input field?*
   [x] can remove artworks from a collection on this page (trash icon)
   [x] button to 'add new artwork'
-    *[ ] can add ONE from the list of existing artworks*
+    [x] can add ONE from the list of existing artworks
     [x] OR can add/create a new artwork
       [x] field for name (required)
       [x] field for year (optional)
