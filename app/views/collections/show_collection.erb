@@ -4,10 +4,7 @@
   <a href="/users/<%=current_user.slug%>" class="button">My Collections</a>
   <a href="/logout" class="button">Log Out</a>
 </div>
-
-<p>show a single collection with options to delete or edit</p>
-
-
+<!--  -->
 <!-- <div id="actionbar">
   <table>
     <tr>
@@ -41,7 +38,7 @@
 </div> -->
 <h1 class="title"><%=@collection.name%></h1>
 
-<div id="actionbar">
+<div id="actionbar" class="sidebar">
   <table>
     <tr>
       <td>
@@ -76,6 +73,7 @@
 <ul>
   <!-- what controller action and route should handle the removal of a single artwork? -->
   <!-- does this mean the collection_artwork item gets removed? -->
+  <!-- should this be a table so that there can be a column for the trash cans? -->
 <% @collection.artworks.each do |a| %>
     <li>
       <a href="/artworks/<%=a.id%>"><%=a.name%></a>

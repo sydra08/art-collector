@@ -148,11 +148,11 @@ form.action {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 2;
+  /*z-index: 2;*/
   text-align: right;
   /*border-bottom: 1px solid #ccc;*/
   padding: 3px;
-  margin: 16px auto;
+  margin: auto;
 }
 
 .active, a.button:hover {
@@ -168,11 +168,12 @@ form.action {
 }*/
 
 /*---Flash Messages---*/
-div.alert {
+div.alert p{
   color: red;
   text-decoration: none;
   display: inline;
-  /*position: float;*/
+  font-style: italic;
+  margin-bottom: 0px;
 }
 
 /*---Action Bar---*/
