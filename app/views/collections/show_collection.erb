@@ -4,7 +4,7 @@
   <a href="/users/<%=current_user.slug%>" class="button">My Collections</a>
   <a href="/logout" class="button">Log Out</a>
 </div>
-<!--  -->
+
 <!-- <div id="actionbar">
   <table>
     <tr>
@@ -36,35 +36,34 @@
     </tr>
   </table>
 </div> -->
-<h1 class="title"><%=@collection.name%></h1>
 
-<div id="actionbar" class="sidebar">
-  <table>
-    <tr>
-      <td>
-        <form action="/artworks/new" method="get">
-          <button type="submit" class="icon-button">
-            <i class="material-icons">add</i><strong>Add Artwork</strong>
-          </button>
-        </form>
-      </td>
-      <td>
-        <form action="/collections/<%=@collection.id%>/edit" method="get">
-          <button type="submit" class="icon-button">
-            <i class="material-icons">mode_edit</i><strong>Edit Name</strong>
-          </button>
-        </form>
-      </td>
-      <td>
-        <form action="/collections/<%=@collection.id%>/delete" method="post">
-          <input id="hidden" type="hidden" name="_method" value="delete">
-          <button type="submit" class="icon-button">
-            <i class="material-icons">delete</i><strong>Delete Collection</strong>
-          </button>
-        </form>
-      </td>
-    </tr>
-  </table>
+
+<div class="col clearfix">
+  <div class="col-two-third clearfix">
+    <h1><%=@collection.name%></h1>
+  </div>
+
+  <div id="actionbar" class="col-one-third clearfix">
+    <form class="action" action="/artworks/new" method="get">
+      <button type="submit" class="icon-button">
+        <i class="material-icons">add</i><strong>Add Artwork</strong>
+      </button>
+    </form>
+
+    <form class="action" action="/collections/<%=@collection.id%>/edit" method="get">
+      <button type="submit" class="icon-button">
+        <i class="material-icons">mode_edit</i><strong>Edit Name</strong>
+      </button>
+    </form>
+
+    <form class="action" action="/collections/<%=@collection.id%>/delete" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <button type="submit" class="icon-button">
+        <i class="material-icons">delete</i><strong>Delete Collection</strong>
+      </button>
+    </form>
+
+  </div>
 </div>
 
 <!-- need to figure out how to align the edit buttons on the RHS of the page -->

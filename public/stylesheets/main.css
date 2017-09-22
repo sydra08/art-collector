@@ -144,13 +144,12 @@ form.action {
 /*---Nav Bar---*/
 
 #navbar {
-  position: float;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
-  /*z-index: 2;*/
+  z-index: 2;
   text-align: right;
-  /*border-bottom: 1px solid #ccc;*/
   padding: 3px;
   margin: auto;
 }
@@ -163,10 +162,6 @@ form.action {
   margin: 0px 1px;
 }
 
-/*#navbar a:hover {
-  text-decoration: underline;
-}*/
-
 /*---Flash Messages---*/
 div.alert p{
   color: red;
@@ -176,18 +171,40 @@ div.alert p{
   margin-bottom: 0px;
 }
 
-/*---Action Bar---*/
-
-#actionbar {
-  position: relative;
-  top: 0;
-  display: inline-block;
-  z-index: 2;
-  text-align: left;
-  float: right;
-  /*padding: 0px 0px 5px 0px;*/
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
 }
 
-#title {
+
+/*---Action Bar---*/
+#actionbar {
+  position: relative;
+  top: 20px;
+  width: 100%;
+  display: inline-block;
+  z-index: 1;
+  float: right;
+  text-align: right;
+
+}
+
+.col {
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  column-count: 2;
   float: left;
+  width: 100%;
+}
+
+.col-one-third {
+  width: 33.33%;
+}
+
+.col-two-third {
+  width: 66.66%;
 }
