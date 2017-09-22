@@ -123,7 +123,6 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
   margin: 0px 2px;
   cursor: pointer;
 }
@@ -137,7 +136,7 @@ i.material-icons {
   font-size: 18px;
 }
 
-form.action {
+form.action{
   display: inline;
 }
 
@@ -152,6 +151,7 @@ form.action {
   text-align: right;
   padding: 3px;
   margin: auto;
+  font-size: 14px;
 }
 
 .active, a.button:hover {
@@ -171,6 +171,7 @@ div.alert p{
   margin-bottom: 0px;
 }
 
+/*--- ---*/
 .clearfix:after {
   content: ".";
   display: block;
@@ -180,17 +181,15 @@ div.alert p{
   line-height: 0;
 }
 
-
-/*---Action Bar---*/
 #actionbar {
   position: relative;
   top: 20px;
   width: 100%;
   display: inline-block;
-  z-index: 1;
+  /*z-index: 1;*/
   float: right;
   text-align: right;
-
+  font-size: 16px;
 }
 
 .col {
@@ -202,9 +201,9 @@ div.alert p{
 }
 
 .col-one-third {
-  width: 33.33%;
+  width: 25%;
 }
 
 .col-two-third {
-  width: 66.66%;
+  width: 75%;
 }

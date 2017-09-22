@@ -5,33 +5,32 @@
   <a href="/logout" class="button">Log Out</a>
 </div>
 
-<div id="actionbar">
-  <a href="/collections/new" class="button">New Collection</a>
+<div class="col clearfix">
+  <div class="col-two-third clearfix">
+    <h1>Welcome <%=current_user.username%>!</h1>
+  </div>
+
+  <div id="actionbar" class="col-one-third clearfix">
+    <button type="button" class="icon-button">
+      <a href="/collections/new"><i class="material-icons">add</i><strong>Add Collection</a>
+    </button>
+  </div>
 </div>
 
-<h1>Welcome <%=current_user.username%>!</h1>
+<div>
+  <% if current_user.collections.empty?%>
+    <br/>
+    <p>You don't have any collections yet!</p>
 
-<% if current_user.collections.empty?%>
-  <br/>
-  <p>You don't have any collections yet!</p>
-
-<%else%>
-  <ul>
-    <% current_user.collections.all.each do |c| %>
-      <li>
-        <strong>
-          <a href="/collections/<%=c.id%>"><%=c.name%></a>
-        </strong>
-        <!-- <small>
-          <form action="/collections/<%=c.id%>/edit" method="get">
-            <input type="submit" value="Edit">
-          </form>
-          <form action="/collections/<%=c.id%>/delete" method="post">
-            <input id="hidden" type="hidden" name="_method" value="delete">
-            <input type="submit" value="Delete">
-          </form>
-        </small> -->
-      </li>
-    <%end%>
-  </ul>
-<%end%>
+  <%else%>
+    <ul>
+      <% current_user.collections.all.each do |c| %>
+        <li>
+          <strong>
+            <a href="/collections/<%=c.id%>"><%=c.name%></a>
+          </strong>
+        </li>
+      <%end%>
+    </ul>
+  <%end%>
+</div>
