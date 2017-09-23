@@ -5,39 +5,6 @@
   <a href="/logout" class="button-1">Log Out</a>
 </div>
 
-<!-- <div id="actionbar">
-  <table>
-    <tr>
-      <td>
-        <h1><%=@collection.name%></h1>
-      </td>
-      <td>
-        <form action="/artworks/new" method="get">
-          <button type="submit" class="icon-button">
-            <i class="material-icons">add</i><strong>Add Artwork</strong>
-          </button>
-        </form>
-      </td>
-      <td>
-        <form action="/collections/<%=@collection.id%>/edit" method="get">
-          <button type="submit" class="icon-button">
-            <i class="material-icons">mode_edit</i><strong>Edit Name</strong>
-          </button>
-        </form>
-      </td>
-      <td>
-        <form action="/collections/<%=@collection.id%>/delete" method="post">
-          <input id="hidden" type="hidden" name="_method" value="delete">
-          <button type="submit" class="icon-button">
-            <i class="material-icons">delete</i><strong>Delete Collection</strong>
-          </button>
-        </form>
-      </td>
-    </tr>
-  </table>
-</div> -->
-
-
 <div class="col clearfix">
   <div class="col-two-third clearfix">
     <h1><%=@collection.name%></h1>
@@ -45,7 +12,7 @@
 
   <div id="actionbar" class="col-one-third clearfix">
 
-    <button type="submit" class="icon-button">
+    <button type="submit" class="icon-button button-2">
       <a href="/artworks/new"><i class="material-icons">add_circle</i><strong>Add Artwork</a>
     </button>
     <!-- <form class="action" action="/artworks/new" method="get">
@@ -54,14 +21,14 @@
       </button>
     </form> -->
 
-    <button type="submit" class="icon-button">
+    <button type="submit" class="icon-button button-2">
       <a href="/collections/<%=@collection.id%>/edit">
-        <i class="material-icons">mode_edit</i><strong>Edit Name</strong>
+        <i class="material-icons">mode_edit</i><strong>Edit Name</strong></a>
     </button>
 
     <form class="action" action="/collections/<%=@collection.id%>/delete" method="post">
       <input id="hidden" type="hidden" name="_method" value="delete">
-      <button type="submit" class="icon-button">
+      <button type="submit" class="icon-button button-2">
         <i class="material-icons">delete</i><strong>Delete Collection</strong>
       </button>
     </form>
@@ -77,11 +44,11 @@
     <li>
       <form class="action" action="/artworks/<%=a.id%>/remove" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
-        <button type="submit" class="icon-button">
-          <i class="material-icons">remove_circle</i>
+        <button type="submit" class="icon-button button-2">
+          <i class="material-icons">remove_circle</i>&nbsp;
         </button>
       </form>
-      &nbsp; <a href="/artworks/<%=a.id%>"><%=a.name%></a>
+      <a href="/artworks/<%=a.id%>"><%=a.name%></a>
     </li>
   <%end%>
 </ul>
