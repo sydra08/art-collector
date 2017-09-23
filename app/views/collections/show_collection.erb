@@ -46,7 +46,7 @@
   <div id="actionbar" class="col-one-third clearfix">
     <form class="action" action="/artworks/new" method="get">
       <button type="submit" class="icon-button">
-        <i class="material-icons">add</i><strong>Add Artwork</strong>
+        <i class="material-icons">add_circle</i><strong>Add Artwork</strong>
       </button>
     </form>
 
@@ -75,13 +75,14 @@
   <!-- should this be a table so that there can be a column for the trash cans? -->
 <% @collection.artworks.each do |a| %>
     <li>
-      <a href="/artworks/<%=a.id%>"><%=a.name%></a>
       <form class="action" action="/artworks/<%=a.id%>/remove" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <button type="submit" class="icon-button">
-          <i class="material-icons">delete</i>
+          <i class="material-icons">remove_circle</i>
         </button>
+      </form>
+
+      &nbsp; <a href="/artworks/<%=a.id%>"><%=a.name%></a>
     </li>
-    </form>
   <%end%>
 </ul>
