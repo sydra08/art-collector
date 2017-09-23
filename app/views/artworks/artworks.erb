@@ -1,13 +1,13 @@
 <div id="navbar">
   <% if logged_in? %>
-    <a href="/artists" class="button">Browse Artists</a>
-    <a href="/artworks" class="button active">Browse Artworks</a>
-    <a href="/users/<%=current_user.slug%>" class="button">My Collections</a>
-    <a href="/logout" class="button">Log Out</a>
+    <a href="/artists" class="button-1">Browse Artists</a>
+    <a href="/artworks" class="button-1 active">Browse Artworks</a>
+    <a href="/users/<%=current_user.slug%>" class="button-1">My Collections</a>
+    <a href="/logout" class="button-1">Log Out</a>
   <% else %>
-    <a href="/signup" class="button">Sign Up</a>
-    <a href="/artists" class="button">Browse Artists</a>
-    <a href="/artworks"class="button active">Browse Artworks</a>
+    <a href="/signup" class="button-1">Sign Up</a>
+    <a href="/artists" class="button-1">Browse Artists</a>
+    <a href="/artworks"class="button-1 active">Browse Artworks</a>
   <% end %>
 </div>
 

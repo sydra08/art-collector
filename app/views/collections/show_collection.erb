@@ -1,8 +1,8 @@
 <div id="navbar">
-  <a href="/artists" class="button">Browse Artists</a>
-  <a href="/artworks" class="button">Browse Artworks</a>
-  <a href="/users/<%=current_user.slug%>" class="button">My Collections</a>
-  <a href="/logout" class="button">Log Out</a>
+  <a href="/artists" class="button-1">Browse Artists</a>
+  <a href="/artworks" class="button-1">Browse Artworks</a>
+  <a href="/users/<%=current_user.slug%>" class="button-1">My Collections</a>
+  <a href="/logout" class="button-1">Log Out</a>
 </div>
 
 <!-- <div id="actionbar">
@@ -44,17 +44,20 @@
   </div>
 
   <div id="actionbar" class="col-one-third clearfix">
-    <form class="action" action="/artworks/new" method="get">
+
+    <button type="submit" class="icon-button">
+      <a href="/artworks/new"><i class="material-icons">add_circle</i><strong>Add Artwork</a>
+    </button>
+    <!-- <form class="action" action="/artworks/new" method="get">
       <button type="submit" class="icon-button">
         <i class="material-icons">add_circle</i><strong>Add Artwork</strong>
       </button>
-    </form>
+    </form> -->
 
-    <form class="action" action="/collections/<%=@collection.id%>/edit" method="get">
-      <button type="submit" class="icon-button">
+    <button type="submit" class="icon-button">
+      <a href="/collections/<%=@collection.id%>/edit">
         <i class="material-icons">mode_edit</i><strong>Edit Name</strong>
-      </button>
-    </form>
+    </button>
 
     <form class="action" action="/collections/<%=@collection.id%>/delete" method="post">
       <input id="hidden" type="hidden" name="_method" value="delete">
@@ -66,13 +69,10 @@
   </div>
 </div>
 
-<!-- need to figure out how to align the edit buttons on the RHS of the page -->
-<!-- eventually want to have the actions on the same line as the collection name -->
-
 <ul>
   <!-- what controller action and route should handle the removal of a single artwork? -->
   <!-- does this mean the collection_artwork item gets removed? -->
-  <!-- should this be a table so that there can be a column for the trash cans? -->
+
 <% @collection.artworks.each do |a| %>
     <li>
       <form class="action" action="/artworks/<%=a.id%>/remove" method="post">
@@ -81,7 +81,6 @@
           <i class="material-icons">remove_circle</i>
         </button>
       </form>
-
       &nbsp; <a href="/artworks/<%=a.id%>"><%=a.name%></a>
     </li>
   <%end%>

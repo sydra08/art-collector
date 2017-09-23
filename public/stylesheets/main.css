@@ -114,32 +114,37 @@
   }
 }
 
-/*---Buttons---*/
-.button {
-  background-color: rgb(51, 51, 51);
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
+/*---Actionbar---*/
+#actionbar {
+  position: relative;
+  top: 20px;
+  width: 100%;
   display: inline-block;
-  margin: 0px 2px;
-  cursor: pointer;
+  float: right;
+  text-align: right;
 }
 
 .icon-button {
   border: none;
   background: none;
   cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
 }
 
 i.material-icons {
   font-size: 18px;
+  color: rgb(51, 51, 51);
 }
 
 form.action{
   display: inline;
 }
+/*
+a:hover, a:visited {
+  color: rgb(51, 51, 51);
+  text-decoration: none;
+}*/
 
 /*---Nav Bar---*/
 
@@ -155,12 +160,23 @@ form.action{
   font-size: 14px;
 }
 
-.active, a.button:hover {
+.button-1 {
+  background-color: rgb(51, 51, 51);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+
+.active, a.button-1:hover {
   background-color: white;
   color: rgb(51, 51, 51);
   border: solid 0.5px rgb(51, 51, 51);
-  text-decoration: none;
-  margin: 0px 1px;
+  padding: 4px 9px;
 }
 
 /*---Flash Messages---*/
@@ -172,7 +188,7 @@ div.alert p{
   margin-bottom: 0px;
 }
 
-/*--- ---*/
+/*---Columns---*/
 .clearfix:after {
   content: ".";
   display: block;
@@ -182,16 +198,6 @@ div.alert p{
   line-height: 0;
 }
 
-#actionbar {
-  position: relative;
-  top: 20px;
-  width: 100%;
-  display: inline-block;
-  /*z-index: 1;*/
-  float: right;
-  text-align: right;
-  font-size: 16px;
-}
 
 .col {
   -moz-column-count: 2;
