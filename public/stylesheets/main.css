@@ -130,6 +130,7 @@
 .icon-button {
   border: none;
   background: none;
+  cursor: pointer;
 }
 
 i.material-icons {
