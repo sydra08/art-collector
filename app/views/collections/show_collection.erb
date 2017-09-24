@@ -13,7 +13,7 @@
   <div id="actionbar" class="col-one-third clearfix">
 
     <button type="submit" class="button-2">
-      <a href="/artworks/new"><i class="material-icons">add_circle</i><strong>Add Artwork</a>
+      <a href="/artworks/new"><i class="material-icons md-18">add_circle</i><strong>Add Artwork</a>
     </button>
     <!-- <form class="action" action="/artworks/new" method="get">
       <button type="submit" class="icon-button">
@@ -23,13 +23,13 @@
 
     <button type="submit" class="button-2">
       <a href="/collections/<%=@collection.id%>/edit">
-        <i class="material-icons">mode_edit</i><strong>Edit Name</strong></a>
+        <i class="material-icons md-18">mode_edit</i><strong>Edit Name</strong></a>
     </button>
 
     <form class="action" action="/collections/<%=@collection.id%>/delete" method="post">
       <input id="hidden" type="hidden" name="_method" value="delete">
       <button type="submit" class="button-2">
-        <i class="material-icons">delete</i><strong>Delete Collection</strong>
+        <i class="material-icons md-18">delete</i><strong>Delete Collection</strong>
       </button>
     </form>
 
@@ -45,10 +45,10 @@
       <form class="action" action="/artworks/<%=a.id%>/remove" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <button type="submit" class="icon-button button-2">
-          <i class="material-icons">remove_circle</i>&nbsp;
+          <i class="material-icons md-18">remove_circle</i>
         </button>
       </form>
-      <a href="/artworks/<%=a.id%>"><%=a.name%></a>
+      &nbsp;<a href="/artworks/<%=a.id%>"><%=a.name%></a>
     </li>
   <%end%>
 </ul>
