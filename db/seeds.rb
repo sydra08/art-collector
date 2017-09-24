@@ -42,10 +42,10 @@ violin = Artwork.new(name: "The Violin", year: "1976")
 violin.artist = roy
 violin.save
 
-drip = Artwork.new(name: "One: Number 31" year: "1950")
+drip = Artwork.new(name: "One: Number 31", year: "1950")
 drip.artist = pollock
 drip.save
 
-judith = Artwork.new(name: "Judith Beheading Holofernes" year: "1599–1602")
+judith = Artwork.new(name: "Judith Beheading Holofernes", year: "1599–1602")
 judith.artist = caravaggio
 judith.save
