@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   post '/users' do
     @user = User.new(params)
     if @user.invalid?
-      flash[:message] = "There was an error processing your request: #{@user.errors[:username][0]}"
+      flash[:message] = "#{@user.errors[:username][0]}"
       redirect to '/signup'
     else
       @user.save
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect to "/users/#{@user.slug}"
     else
-      flash[:message] = "Login failed. Please try again"
+      flash[:message] = "Incorrect username or password. Please try again"
       redirect to '/login'
     end
   end
