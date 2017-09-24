@@ -44,3 +44,25 @@
     </li>
   <%end%>
 </ul>
+
+<div>
+  <% if @collection.artworks.empty?%>
+    <br/>
+    <p>You haven't added any artwork yet!</p>
+
+  <%else%>
+  <ul>
+  <% @collection.artworks.each do |a| %>
+      <li>
+        <form onsubmit="return confirm('Are you sure you want to delete <%=a.name%> from your collection?');" class="action" action="/artworks/<%=a.id%>/remove" method="post">
+          <input id="hidden" type="hidden" name="_method" value="delete">
+          <button type="submit" class="icon-button button-2">
+            <i class="material-icons md-18">remove_circle</i>
+          </button>
+        </form>
+        &nbsp;<a href="/artworks/<%=a.id%>"><%=a.name%></a>
+      </li>
+    <%end%>
+  </ul>
+  <%end%>
+</div>
