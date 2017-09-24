@@ -51,8 +51,8 @@
         *[ ] should artworks be required to have an artist? or should there be a default value of "unknown"*
       *[ ] if an artwork starts with the word "the" you can run a search for it with and without the "the"
 [x] edit a collection (add/remove existing works, update collection name)*
-[ ] delete a collection
-  *[ ] add a pop up confirmation*
+[x] delete a collection
+  *[x] add a pop up confirmation*
 [ ] add error messages
   *[ ] look into AR validation messages http://edgeguides.rubyonrails.org/active_record_validations.html*
   [ ] flash messages
@@ -65,31 +65,31 @@
       [ ] flash[:intruder] = "You cannot edit another user's collection"
     [ ] have flash messages that are determined based on the error message from the object?
 *[ ] input validations*
-  [ ] when a user adds an artwork, should they be able to add "Mona Lisa" if "The Mona Lisa" exists?
+  [x] when a user adds an artwork, should they be able to add "Mona Lisa" if "The Mona Lisa" exists?
 [ ] maybe remove the 'browse artist' view for now?
 *[ ] style views*
-[ ] decide if i want to have default values for things in tables or just handle another way in erb
+[x] decide if i want to have default values for things in tables or just handle another way in erb
 
 Misc
 [ ] style the input boxes differently
 [ ] fix the padding on the sidebar div on the homepage
 [ ] style the checkbox lists differently
-[ ] change the background color
-[ ] find a new google font?
-[ ] why are the edit routes showing up with ? at the end...need to investigate buttons more when I work on styling the routes
-[ ] add trash can and pen icons to the "all collections" view
-[ ] add trash can and pen icons to the "single collection" view
-[ ] add http://google.github.io/material-design-icons/ to fonts (icons)
-  [ ] edit = <i class="material-icons">mode_edit</i>
-  [ ] delete = <i class="material-icons">delete</i>
+[x] change the background color
+[x] find a new google font?
+[x] why are the edit routes showing up with ? at the end...need to investigate buttons more when I work on styling the routes
+[x] add trash can and pen icons to the "all collections" view
+[x] add trash can and pen icons to the "single collection" view
+[x] add http://google.github.io/material-design-icons/ to fonts (icons)
+  [x] edit = <i class="material-icons">mode_edit</i>
+  [x] delete = <i class="material-icons">delete</i>
 <!-- [ ] should a user only be able to edit an artist's details but not their artworks?
 [ ] should you be able edit an artwork's artist? -->
 [ ] should ids or slugs be used => is it bad practice to expose the id of an object?
-[ ] when you're creating a collection should you be able to select from a dropdown menu?
+[x] when you're creating a collection should you be able to select from a dropdown menu?
 [ ] review all of the messages/verbiage before submitting
 [ ] how can I make it so that form button look prettier
-[ ] figure out how to replace the form buttons with other icons
-[ ] research what the best way to pass information between views/routes is and not stuff from user input. should you still use params?
+[x] figure out how to replace the form buttons with other icons
+[x] research what the best way to pass information between views/routes is and not stuff from user input. should you still use params?
 [ ] add tables to layouts to organize content better
 
 Required for go live

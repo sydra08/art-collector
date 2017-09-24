@@ -32,9 +32,6 @@
 </div>
 
 <ul>
-  <!-- what controller action and route should handle the removal of a single artwork? -->
-  <!-- does this mean the collection_artwork item gets removed? -->
-
 <% @collection.artworks.each do |a| %>
     <li>
       <form onsubmit="return confirm('Are you sure you want to delete <%=a.name%> from your collection?');" class="action" action="/artworks/<%=a.id%>/remove" method="post">
