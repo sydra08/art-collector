@@ -59,6 +59,7 @@
   .content {
     float: left;
     width: 60%; /* 480px / 800px */
+    margin-bottom: 10px;
   }
 
   .sidebar {
@@ -115,7 +116,26 @@
   }
 }
 
-/*---Actionbar---*/
+/*---Input Boxes---*/
+.content input{
+  width: 60%;
+  line-height: 20px;
+}
+
+/*---Tool Bars---*/
+
+#navbar {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  text-align: right;
+  padding: 3px;
+  margin: auto;
+  font-size: 14px;
+}
+
 #actionbar {
   position: relative;
   top: 20px;
@@ -123,6 +143,33 @@
   display: inline-block;
   float: right;
   text-align: right;
+}
+
+form.action{
+  display: inline-block;
+}
+
+/*---Flash Messages---*/
+div.alert p{
+  color: red;
+  text-decoration: none;
+  display: inline;
+  font-style: italic;
+  margin-bottom: 0px;
+}
+
+/*---Buttons---*/
+
+.button-1 {
+  background-color: rgb(51, 51, 51);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 2px;
+  cursor: pointer;
 }
 
 .button-2 a{
@@ -137,59 +184,27 @@
   font-size: 14px;
 }
 
+input.button-3 {
+  background-color: rgb(51, 51, 51);
+  border: none;
+  color: white;
+  padding: 5px 0px;
+  text-align: center;
+  margin-top: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 61%;
+}
+
 .material-icons.md-18 {
   font-size: 18px;
 }
 
-form.action{
-  display: inline-block;
-}
-/*
-a:hover, a:visited {
-  color: rgb(51, 51, 51);
-  text-decoration: none;
-}*/
-
-/*---Nav Bar---*/
-
-#navbar {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-  text-align: right;
-  padding: 3px;
-  margin: auto;
-  font-size: 14px;
-}
-
-.button-1 {
-  background-color: rgb(51, 51, 51);
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 0px 2px;
-  cursor: pointer;
-}
-
-.active, a.button-1:hover {
+.active, a.button-1:hover, .button-3:hover {
   background-color: white;
   color: rgb(51, 51, 51);
-  border: solid 0.5px rgb(51, 51, 51);
+  border: 0.5px solid rgb(51, 51, 51);
   padding: 4px 9px;
-}
-
-/*---Flash Messages---*/
-div.alert p{
-  color: red;
-  text-decoration: none;
-  display: inline;
-  font-style: italic;
-  margin-bottom: 0px;
 }
 
 /*---Columns---*/
