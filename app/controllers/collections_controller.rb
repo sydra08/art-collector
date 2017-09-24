@@ -24,15 +24,18 @@ class CollectionsController < ApplicationController
   end
 
   get '/collections/:id' do
-    @collection = Collection.find(params[:id])
-    if logged_in? && user_collection_valid?
-      session[:collection] = @collection.id
-    # anytime a user visits one of their collections, the session[:collection] value is reset
-    # need to add more validations around the collection belonging to the user since the info is in the session?
-      erb :'/collections/show_collection'
+    if logged_in?
+      @collection = Collection.find(params[:id])
+      if user_collection_valid?
+        session[:collection] = @collection.id
+        erb :'/collections/show_collection'
+      else
+        flash[:message] = "You cannot view another user's collection"
+        redirect to "/users/#{current_user.slug}"
+      end
     else
-      flash[:message] = "You cannot view another user's collection"
-      redirect to "/users/#{current_user.slug}"
+      flash[:message] = "You must be logged in to do that"
+      redirect to "/login"
     end
   end
 
