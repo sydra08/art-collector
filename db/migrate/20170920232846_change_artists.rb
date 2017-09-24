@@ -1,7 +1,8 @@
 class ChangeArtists < ActiveRecord::Migration
   def change
-    change_table :artists do |t|
-      t.remove :movement, :location, :birth_year, :alive
-    end
+    remove_column :artists, :movement, :string
+    remove_column :artists, :location, :string
+    remove_column :artists, :birth_year, :integer
+    remove_column :artists, :alive, :boolean
   end
 end
