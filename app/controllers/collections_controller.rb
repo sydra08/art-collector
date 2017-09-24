@@ -25,10 +25,15 @@ class CollectionsController < ApplicationController
 
   get '/collections/:id' do
     @collection = Collection.find(params[:id])
-    session[:collection] = @collection.id
+    if logged_in? && user_collection_valid?
+      session[:collection] = @collection.id
     # anytime a user visits one of their collections, the session[:collection] value is reset
     # need to add more validations around the collection belonging to the user since the info is in the session?
-    erb :'/collections/show_collection'
+      erb :'/collections/show_collection'
+    else
+      flash[:message] = "You cannot view another user's collection"
+      redirect to "/users/#{current_user.slug}"
+    end
   end
 
   patch '/collections/:id' do
@@ -49,7 +54,7 @@ class CollectionsController < ApplicationController
   delete '/collections/:id/delete' do
     @collection = Collection.find(params[:id])
     # add a pop up confirmation box before deleting
-    if logged_in? && current_user.collection_ids.include?(@collection.id)
+    if logged_in? && user_collection_valid?
       @collection.destroy
       flash[:message] = "Collection deleted"
       redirect to "/users/#{current_user.slug}"
