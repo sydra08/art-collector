@@ -52,8 +52,18 @@ class UsersController < ApplicationController
   end
 
   get '/users/:slug' do
-    @user = User.find_by_slug(params[:slug])
-    erb :'/users/show_user'
+    if logged_in?
+      @user = User.find_by_slug(params[:slug])
+      if current_user == @user
+        erb :'/users/show_user'
+      else
+        flash[:message] = "You cannot view another user's homepage"
+        redirect to "/users/#{current_user.slug}"
+      end
+    else
+      flash[:message] = "You must be logged in to do that"
+      redirect to '/'
+    end
   end
 
   get '/logout' do
