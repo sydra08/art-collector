@@ -8,10 +8,10 @@
 <h1>Create a new collection</h1>
 
 <form action="/collections" method="post">
-  <label>Name: </label><input type="text" name="collection[name]" placeholder="my collection">
+  <label>Name: </label><input type="text" name="collection[name]" placeholder="my collection" required>
   <br></br>
 
-  <label>Get your collection started by adding artworks from the list below</label>
+  <label>Get your collection started by adding artworks from the list below:</label>
   <br>
   <%Artwork.all.each do |a|%>
   <input type="checkbox" name="collection[artwork_ids][]" value="<%=a.id%>"> <%=a.name%><br />
