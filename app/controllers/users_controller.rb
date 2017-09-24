@@ -11,12 +11,13 @@ class UsersController < ApplicationController
 
   post '/users' do
     @user = User.new(params)
-    if @user.save
+    if @user.invalid?
+      flash[:message] = "There was an error processing your request: #{@user.errors[:username][0]}"
+      redirect to '/signup'
+    else
+      @user.save
       session[:user_id] = @user.id
       redirect to "/users/#{@user.slug}"
-    else
-      flash[:message] = "Unable to register you. Please try again"
-      redirect to '/signup'
     end
   end
 
