@@ -5,6 +5,8 @@
     margin: 0;
     padding: 0;
     color: rgb(51, 51, 51);
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
   }
 
   html, body {
@@ -16,8 +18,7 @@
   body {
     background-color: maroon;
     color: rgb(51, 51, 51);
-    font-family: Sans-Serif;
-    line-height: 18px;
+    line-height: 20px;
   }
 
   .wrapper {
