@@ -26,7 +26,7 @@ class CollectionsController < ApplicationController
   get '/collections/:id' do
     if logged_in?
       @collection = Collection.find(params[:id])
-      if user_collection_valid?
+      if current_user.collections.include?(@collection)
         session[:collection] = @collection.id
         erb :'/collections/show_collection'
       else
@@ -50,13 +50,23 @@ class CollectionsController < ApplicationController
   end
 
   get '/collections/:id/edit' do
-    @collection = Collection.find(params[:id])
-    erb :'/collections/edit_collection'
+    if logged_in?
+      @collection = Collection.find(params[:id])
+      if current_user.collections.include?(@collection)
+        erb :'/collections/edit_collection'
+      else
+        flash[:message] = "You cannot edit another user's collection"
+        redirect to "/users/#{current_user.slug}"
+      end
+    else
+      flash[:message] = "You must be logged in to do that"
+      redirect to "/login"
+    end
   end
 
   delete '/collections/:id/delete' do
     @collection = Collection.find(params[:id])
-    # add a pop up confirmation box before deleting
+    # can use user_collection_valid? here because a user cannot access the show collection view
     if logged_in? && user_collection_valid?
       @collection.destroy
       flash[:message] = "Collection deleted"
