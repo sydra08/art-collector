@@ -13,23 +13,18 @@
   <div id="actionbar" class="col-one-third clearfix">
 
     <button type="submit" class="button-2">
-      <a href="/artworks/new"><i class="material-icons md-18">add_circle</i><strong>Add Artwork</strong></a>
+      <a href="/artworks/new"><i class="material-icons md-18">add_circle</i>Add Artwork</a>
     </button>
-    <!-- <form class="action" action="/artworks/new" method="get">
-      <button type="submit" class="icon-button">
-        <i class="material-icons">add_circle</i><strong>Add Artwork</strong>
-      </button>
-    </form> -->
 
     <button type="submit" class="button-2">
       <a href="/collections/<%=@collection.id%>/edit">
-        <i class="material-icons md-18">mode_edit</i><strong>Edit Name</strong></a>
+        <i class="material-icons md-18">mode_edit</i>Edit Name</a>
     </button>
 
     <form class="action" action="/collections/<%=@collection.id%>/delete" method="post">
       <input id="hidden" type="hidden" name="_method" value="delete">
       <button type="submit" class="button-2">
-        <i class="material-icons md-18">delete</i><strong>Delete Collection</strong>
+        <i class="material-icons md-18">delete</i>Delete Collection
       </button>
     </form>
 
