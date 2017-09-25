@@ -9,7 +9,7 @@ class ArtworksController < ApplicationController
       if !params[:artwork_id].empty?
 
         @artwork = Artwork.find(params[:artwork_id])
-        if !current_collection.artwork_ids.include?(@artwork)
+        if !current_collection.artworks.include?(@artwork)
           current_collection.artworks << @artwork
 
           flash[:message] = "#{@artwork.name} was successfully added to your collection"
@@ -36,13 +36,18 @@ class ArtworksController < ApplicationController
         end
 
         if @artwork.valid?
-          current_collection.artworks << @artwork
-          flash[:message] = "#{@artwork.name} was successfully added to your collection"
-          redirect to "/collections/#{current_collection.id}"
+          if !current_collection.artworks.include?(@artwork)
+            current_collection.artworks << @artwork
+            flash[:message] = "#{@artwork.name} was successfully added to your collection"
+            redirect to "/collections/#{current_collection.id}"
+          else
+            flash[:message] = "#{@artwork.name} is already in your collection"
+            redirect to '/artworks/new'
+          end
         else
           # if the artwork isn't valid
           flash[:message] = "There was an error processing your request: #{@artwork.errors[:name][0]}"
-          redirect to "/collections/#{current_collection.id}"
+          redirect to '/artworks/new'
         end
       end
     else
