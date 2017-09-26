@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   post '/users' do
     @user = User.new(params)
     if @user.invalid?
-      flash[:message] = "#{@user.errors[:username][0]}"
+      binding.pry
+      flash[:message] = "Error: #{@user.errors.messages.values[0][0]}"
       redirect to '/signup'
     else
       @user.save
