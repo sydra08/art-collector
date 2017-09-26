@@ -11,13 +11,13 @@ class CollectionsController < ApplicationController
 
   post '/collections' do
     @collection = Collection.new(name: params[:collection][:name], artwork_ids: params[:collection][:artwork_ids])
-    if @collection.valid?
+    if @collection.valid? && !user_collection_names.include?(@collection.name)
       current_user.collections << @collection
       flash[:message] = "Successfully created collection"
       redirect to "/collections/#{@collection.id}"
     else
-      flash[:message] = "Error: Unable to create collection"
-      redirect to "/collections/#{@collection.id}"
+      flash[:message] = "Error: You already have a collection with that name"
+      redirect to '/collections/new'
     end
   end
 

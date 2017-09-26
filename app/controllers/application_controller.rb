@@ -32,6 +32,10 @@ class ApplicationController < Sinatra::Base
       # mostly used when trying to add a new artwork to a collection
       current_user.collection_ids.include?(current_collection.id)
     end
+
+    def user_collection_names
+      current_user.collections.collect {|c| c.name}
+    end
   end
 
 end
