@@ -7,10 +7,10 @@
 
 <h3>Choose an existing artwork</h3>
 <form action="/artworks" method="post">
-  <select name="artwork_id" type="text" required>
+  <select name="artwork[name]" type="text" required>
     <option disabled selected value> -- select an artwork -- </option>
     <% @available_artworks.each do |a| %>
-      <option value="<%=a.id%>"> <%=a.name%> by <%=a.artist.name unless a.artist.nil?%></option>
+      <option value="<%=a.name%>"> <%=a.name%> by <%=a.artist.name unless a.artist.nil?%></option>
     <% end %>
   </select>
 
