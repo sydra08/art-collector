@@ -4,7 +4,7 @@ class CollectionsController < ApplicationController
     if logged_in?
       erb :'/collections/create_collection'
     else
-      flash[:message] = "You must be logged in to do that"
+      flash[:message] = "Error: You must be logged in to do that"
       redirect '/login'
     end
   end
@@ -16,7 +16,7 @@ class CollectionsController < ApplicationController
       flash[:message] = "Successfully created collection"
       redirect to "/collections/#{@collection.id}"
     else
-      flash[:message] = "Unable to create collection"
+      flash[:message] = "Error: Unable to create collection"
       redirect to "/collections/#{@collection.id}"
     end
   end
@@ -28,11 +28,11 @@ class CollectionsController < ApplicationController
         session[:collection] = @collection.id
         erb :'/collections/show_collection'
       else
-        flash[:message] = "You cannot view another user's collection"
+        flash[:message] = "Error: You cannot view another user's collection"
         redirect to "/users/#{current_user.slug}"
       end
     else
-      flash[:message] = "You must be logged in to do that"
+      flash[:message] = "Error: You must be logged in to do that"
       redirect to "/login"
     end
   end
@@ -53,11 +53,11 @@ class CollectionsController < ApplicationController
       if current_user.collections.include?(@collection)
         erb :'/collections/edit_collection'
       else
-        flash[:message] = "You cannot edit another user's collection"
+        flash[:message] = "Error: You cannot edit another user's collection"
         redirect to "/users/#{current_user.slug}"
       end
     else
-      flash[:message] = "You must be logged in to do that"
+      flash[:message] = "Error: You must be logged in to do that"
       redirect to "/login"
     end
   end
@@ -70,7 +70,7 @@ class CollectionsController < ApplicationController
       flash[:message] = "Collection deleted"
       redirect to "/users/#{current_user.slug}"
     else
-      flash[:message] = "You cannot edit another user's collection"
+      flash[:message] = "Error: You cannot edit another user's collection"
       redirect to "/users/#{current_user.slug}"
     end
   end

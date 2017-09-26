@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect to "/users/#{@user.slug}"
     else
-      flash[:message] = "Incorrect username or password. Please try again"
+      flash[:message] = "Error: Incorrect username or password"
       redirect to '/login'
     end
   end
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
       flash[:message] = "Successfully logged out"
       redirect to '/login'
     else
-      flash[:message] = "You must be logged in to do that"
+      flash[:message] = "Error: You must be logged in to do that"
       redirect to '/'
     end
   end
@@ -57,13 +57,13 @@ class UsersController < ApplicationController
       if current_user == @user
         erb :'/users/show_user'
       else
-        flash[:message] = "You cannot view another user's homepage"
+        flash[:message] = "Error: You cannot view another user's homepage"
         redirect to "/users/#{current_user.slug}"
       end
     else
-      flash[:message] = "You must be logged in to do that"
+      flash[:message] = "Error: You must be logged in to do that"
       redirect to '/'
     end
   end
-  
+
 end
