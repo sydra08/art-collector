@@ -27,12 +27,12 @@ class ArtworksController < ApplicationController
 
       else
         if !@artwork.errors[:name][0].nil?
+          # shows up if you try to add an artwork with the same name as an existing one, but not matching case
           flash[:message] = "Error: #{@artwork.errors[:name][0]}"
-          redirect to '/artworks/new'
         else
           flash[:message] = "Error: #{@artwork.name} is already in your collection"
-          redirect to '/artworks/new'
         end
+        redirect to '/artworks/new'
       end
 
     else
