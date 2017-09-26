@@ -20,22 +20,20 @@ class ArtworksController < ApplicationController
         end
 
       elsif !params[:artwork].empty?
-
         @artwork = Artwork.find_or_create_by(name: params[:artwork][:name]) do |a|
           a.year = params[:artwork][:year] unless params[:artwork][:year] == ""
         end
 
-        if !params[:artwork][:artist].empty?
-          @artist = Artist.find_or_create_by(name: params[:artwork][:artist])
-          if @artist.invalid? || (@artwork.artist != @artist && @artwork.artist != nil)
-            flash[:message] = "There was an error processing your request: #{@artist.errors[:name][0]}"
-            # add error in for if you try to edit an already created artwork
-            redirect to '/artworks/new'
-          end
-          @artist.artworks << @artwork
-        end
-
         if @artwork.valid?
+
+          if @artwork.artist_id == nil && !params[:artwork][:artist].empty?
+            # only adds an artist if the artwork doesn't have one already and the artist param isn't empty
+            @artist = Artist.find_or_create_by(name: params[:artwork][:artist])
+            if @artist.valid?
+              @artist.artworks << @artwork
+            end
+          end
+
           if !current_collection.artworks.include?(@artwork)
             current_collection.artworks << @artwork
             flash[:message] = "#{@artwork.name} was successfully added to your collection"
@@ -44,12 +42,13 @@ class ArtworksController < ApplicationController
             flash[:message] = "#{@artwork.name} is already in your collection"
             redirect to '/artworks/new'
           end
+
         else
-          # if the artwork isn't valid
           flash[:message] = "There was an error processing your request: #{@artwork.errors[:name][0]}"
           redirect to '/artworks/new'
         end
       end
+
     else
       # if you try to edit someone else's collection
       flash[:message] = "You cannot edit someone else's collection"
