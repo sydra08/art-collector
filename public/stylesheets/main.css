@@ -150,11 +150,14 @@ form.action{
 }
 
 /*---Flash Messages---*/
+
 div.alert p{
   color: red;
   text-decoration: none;
   display: inline;
   font-style: italic;
+  font-weight: bold;
+  font-size: 18px;
   margin-bottom: 0px;
 }
 
