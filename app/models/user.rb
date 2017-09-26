@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   has_many :collections, through: :user_collections
   has_secure_password
   validates :username, :email, presence: true
-  validates_uniqueness_of :username, :case_sensitive => false, :message => "That username has already been taken. Please choose a different one."
+  validates_format_of :email, :with => /[A-z0-9]+@[A-z]+.[A-z]+/
+  validates_uniqueness_of :username, :case_sensitive => false, :message => "That username has already been taken"
 
   def slug
     username.downcase.gsub(" ", "-")
