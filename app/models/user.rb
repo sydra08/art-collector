@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :collections, through: :user_collections
   has_secure_password
   validates :username, :email, presence: true
-  validates_format_of :email, :with => /[A-z0-9]+@[A-z]+.[A-z]+/
+  validates_format_of :email, :with => /[A-z0-9]+@[A-z]+.[A-z]+/, :message => "Email is invalid"
   validates_uniqueness_of :username, :case_sensitive => false, :message => "That username has already been taken"
 
   def slug
