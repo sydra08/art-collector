@@ -2,12 +2,9 @@
 
 Art Collector is a Sinatra app that allows you to create and manage different art collections. Users can also view all artists and artworks to the database supporting the app.
 
-## Install instructions
+## Install & Usage Instructions
 
 To install, clone or fork this repository, then run `bundle install` from the terminal prompt.
-
-## Usage
-
 To create a new verison of the database, populate it with seed data, and get started, run the following commands from the terminal prompt:
 
 ```ruby
