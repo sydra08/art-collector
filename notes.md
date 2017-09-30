@@ -53,7 +53,7 @@
 [x] edit a collection (add/remove existing works, update collection name)*
 [x] delete a collection
   *[x] add a pop up confirmation*
-[ ] add error messages
+[x] add error messages
   *[ ] look into AR validation messages http://edgeguides.rubyonrails.org/active_record_validations.html*
   [ ] flash messages
     [x] add flash messages to controllers
@@ -67,11 +67,11 @@
 *[ ] input validations*
   [x] when a user adds an artwork, should they be able to add "Mona Lisa" if "The Mona Lisa" exists?
 [ ] maybe remove the 'browse artist' view for now?
-*[ ] style views*
+*[x] style views*
 [x] decide if i want to have default values for things in tables or just handle another way in erb
 
 Misc
-[ ] style the input boxes differently
+[x] style the input boxes differently
 [ ] fix the padding on the sidebar div on the homepage
 [ ] style the checkbox lists differently
 [x] change the background color
@@ -84,19 +84,21 @@ Misc
   [x] delete = <i class="material-icons">delete</i>
 <!-- [ ] should a user only be able to edit an artist's details but not their artworks?
 [ ] should you be able edit an artwork's artist? -->
-[ ] should ids or slugs be used => is it bad practice to expose the id of an object?
+[x] should ids or slugs be used => is it bad practice to expose the id of an object?
 [x] when you're creating a collection should you be able to select from a dropdown menu?
-[ ] review all of the messages/verbiage before submitting
-[ ] how can I make it so that form button look prettier
+[x] review all of the messages/verbiage before submitting
+[x] how can I make it so that form buttons look prettier
 [x] figure out how to replace the form buttons with other icons
 [x] research what the best way to pass information between views/routes is and not stuff from user input. should you still use params?
-[ ] add tables to layouts to organize content better
+<!-- [ ] add tables to layouts to organize content better -->
 
 Required for go live
-[ ] reset database and re-seed before submitting
+[x] reset database and re-seed before submitting
 [ ] write out a test spec?
-[ ] readme.md
-[ ] fill out spec.md
+[x] write readme.md
+[x] fill out spec.md
+[x] remember to log test user out before submitting and running migrations
+[ ] add user to seeds.rb so there's something to run user validations against?
 
 Enhancements/Improvements for a later iteration
 + if you add an artist to your collection, by default all of the artworks are checked off
