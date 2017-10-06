@@ -40,9 +40,10 @@ class CollectionsController < ApplicationController
   patch '/collections/:id' do
     @collection = Collection.find(params[:id])
     if !params[:collection][:name].empty?
+      # only update the name if the field isn't empty
       @collection.name = params[:collection][:name]
+      @collection.save
     end
-    @collection.save
 
     redirect to "/collections/#{@collection.id}"
   end
@@ -50,8 +51,8 @@ class CollectionsController < ApplicationController
   get '/collections/:id/edit' do
     if logged_in?
       @collection = Collection.find(params[:id])
-      session[:collection] = @collection.id
-      if current_user.collections.include?(current_collection)
+      if current_user.collection_ids.include?(@collection.id)
+        session[:collection] = @collection.id
         erb :'/collections/edit_collection'
       else
         flash[:message] = "Error: You cannot edit another user's collection"
