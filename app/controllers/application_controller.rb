@@ -24,7 +24,6 @@ class ApplicationController < Sinatra::Base
 
     def current_collection
       @current_collection ||= Collection.find(session[:collection])
-      # should this be changed to Collection.find(session[:collection]) || Collection.find(params[:id])
     end
 
     def user_collection_valid?

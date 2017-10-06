@@ -65,9 +65,9 @@ class ArtworksController < ApplicationController
   delete '/artworks/:id/remove' do
     @artwork = Artwork.find(params[:id])
     if user_collection_valid?
-  # if the collection belongs to the user
+      # if the collection belongs to the user
       current_collection.artworks.delete(@artwork)
-  # deletes it from the collection but not the database
+      # deletes it from the collection but not the database
       flash[:message] = "#{@artwork.name} successfully removed from your collection"
       redirect to "/collections/#{current_collection.id}"
     else
