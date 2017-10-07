@@ -8,7 +8,7 @@ class CollectionsController < ApplicationController
   post '/collections' do
     authenticate_user
     @collection = Collection.new(name: params[:collection][:name], artwork_ids: params[:collection][:artwork_ids])
-    if @collection.valid? && !user_collection_names.include?(@collection.name)
+    if @collection.save && !user_collection_names.include?(@collection.name)
       current_user.collections << @collection
       flash[:message] = "Successfully created collection"
       redirect to "/collections/#{@collection.id}"
