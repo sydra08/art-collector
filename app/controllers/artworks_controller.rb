@@ -1,8 +1,18 @@
 class ArtworksController < ApplicationController
 
   get '/artworks' do
+    @artworks = Artwork.all
     erb :'/artworks/artworks'
   end
+  #
+  # get '/collections/:collection_id/artworks' do
+  #   if @collection = Collection.find_by(id: params[:collection_id])
+  #     @artworks = @collection.artworks
+  #     erb :'/artworks/artworks'
+  #   else
+  #     # TODO add error message and redirect
+  #   end
+  # end
 
   post '/artworks' do
     if user_collection_valid?
@@ -43,17 +53,13 @@ class ArtworksController < ApplicationController
   end
 
   get '/artworks/new' do
-    if logged_in?
-      if user_collection_valid?
-        @available_artworks =  Artwork.all.select{|a| !current_collection.artworks.include?(a)}
-        erb :'/artworks/new_artwork'
-      else
-        flash[:message] = "Error: You cannot edit someone else's collection"
-        redirect to "/users/#{current_user.slug}"
-      end
+    authenticate_user
+    if user_collection_valid?
+      @available_artworks =  Artwork.all.select{|a| !current_collection.artworks.include?(a)}
+      erb :'/artworks/new_artwork'
     else
-      flash[:message] = "Error: You must be logged in to edit a collection"
-       redirect to '/'
+      flash[:message] = "Error: You cannot edit someone else's collection"
+      redirect to "/users/#{current_user.slug}"
     end
   end
 
@@ -63,6 +69,7 @@ class ArtworksController < ApplicationController
   end
 
   delete '/artworks/:id/remove' do
+    authenticate_user
     @artwork = Artwork.find(params[:id])
     if user_collection_valid?
       # if the collection belongs to the user

@@ -10,13 +10,12 @@ class UsersController < ApplicationController
 
   post '/users' do
     @user = User.new(params)
-    if @user.invalid?
-      flash[:message] = "Error: #{@user.errors.messages.values[0][0]}"
-      redirect to '/signup'
-    else
-      @user.save
+    if @user.save
       session[:user_id] = @user.id
       redirect to "/users/#{@user.slug}"
+    else
+      flash[:message] = "Error: #{@user.errors.messages.values[0][0]}"
+      redirect to '/signup'
     end
   end
 
@@ -31,7 +30,7 @@ class UsersController < ApplicationController
   post '/login' do
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
-      # make sure the password is valid 
+      # make sure the password is valid
       session[:user_id] = @user.id
       redirect to "/users/#{@user.slug}"
     else
@@ -41,28 +40,20 @@ class UsersController < ApplicationController
   end
 
   get '/logout' do
-    if logged_in?
-      session.destroy
-      flash[:message] = "Successfully logged out"
-      redirect to '/login'
-    else
-      flash[:message] = "Error: You must be logged in to do that"
-      redirect to '/'
-    end
+    authenticate_user
+    session.destroy
+    flash[:message] = "Successfully logged out"
+    redirect to '/login'
   end
 
   get '/users/:slug' do
-    if logged_in?
-      @user = User.find_by_slug(params[:slug])
-      if current_user == @user
-        erb :'/users/show_user'
-      else
-        flash[:message] = "Error: You cannot view another user's homepage"
-        redirect to "/users/#{current_user.slug}"
-      end
+    authenticate_user
+    @user = User.find_by_slug(params[:slug])
+    if current_user == @user
+      erb :'/users/show_user'
     else
-      flash[:message] = "Error: You must be logged in to do that"
-      redirect to '/'
+      flash[:message] = "Error: You cannot view another user's homepage"
+      redirect to "/users/#{current_user.slug}"
     end
   end
 

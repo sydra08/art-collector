@@ -1,15 +1,12 @@
 class CollectionsController < ApplicationController
 
   get '/collections/new' do
-    if logged_in?
-      erb :'/collections/create_collection'
-    else
-      flash[:message] = "Error: You must be logged in to do that"
-      redirect '/login'
-    end
+    authenticate_user
+    erb :'/collections/create_collection'
   end
 
   post '/collections' do
+    authenticate_user
     @collection = Collection.new(name: params[:collection][:name], artwork_ids: params[:collection][:artwork_ids])
     if @collection.valid? && !user_collection_names.include?(@collection.name)
       current_user.collections << @collection
@@ -22,22 +19,18 @@ class CollectionsController < ApplicationController
   end
 
   get '/collections/:id' do
-    if logged_in?
-      @collection = Collection.find(params[:id])
-      if current_user.collections.include?(@collection)
-        session[:collection] = @collection.id
-        erb :'/collections/show_collection'
-      else
-        flash[:message] = "Error: You cannot view another user's collection"
-        redirect to "/users/#{current_user.slug}"
-      end
+    authenticate_user
+    if @collection = current_user.collections.find_by(id: params[:id])
+      session[:collection] = @collection.id
+      erb :'/collections/show_collection'
     else
-      flash[:message] = "Error: You must be logged in to do that"
-      redirect to "/login"
+      flash[:message] = "Error: You cannot view another user's collection"
+      redirect to "/users/#{current_user.slug}"
     end
   end
 
   patch '/collections/:id' do
+    authenticate_user
     @collection = Collection.find(params[:id])
     if !params[:collection][:name].empty?
       # only update the name if the field isn't empty
@@ -49,24 +42,21 @@ class CollectionsController < ApplicationController
   end
 
   get '/collections/:id/edit' do
-    if logged_in?
-      @collection = Collection.find(params[:id])
-      if current_user.collection_ids.include?(@collection.id)
-        session[:collection] = @collection.id
-        erb :'/collections/edit_collection'
-      else
-        flash[:message] = "Error: You cannot edit another user's collection"
-        redirect to "/users/#{current_user.slug}"
-      end
+    authenticate_user
+    @collection = Collection.find(params[:id])
+    if current_user.collection_ids.include?(@collection.id)
+      session[:collection] = @collection.id
+      erb :'/collections/edit_collection'
     else
-      flash[:message] = "Error: You must be logged in to do that"
-      redirect to "/login"
+      flash[:message] = "Error: You cannot edit another user's collection"
+      redirect to "/users/#{current_user.slug}"
     end
   end
 
   delete '/collections/:id/delete' do
+    authenticate_user
     @collection = Collection.find(params[:id])
-    if logged_in? && user_collection_valid?
+    if user_collection_valid?
       @collection.destroy
       flash[:message] = "Collection deleted"
       redirect to "/users/#{current_user.slug}"
