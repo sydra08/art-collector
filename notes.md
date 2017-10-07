@@ -94,7 +94,7 @@ Misc
 
 Required for go live
 [x] reset database and re-seed before submitting
-[ ] write out a test spec?
+<!-- [ ] write out a test spec? -->
 [x] write readme.md
 [x] fill out spec.md
 [x] remember to log test user out before submitting and running migrations
@@ -106,6 +106,16 @@ Enhancements/Improvements for a later iteration
 + have different navbar sections?
 + allow users to add/edit artworks in the database?
 + allow users to add/edit artists in the database?
+
+Items for Refactoring
+[ ] have /collections/:collection_id/ routes inside ArtworksController for
+  [ ] edit (adding artworks)
+  [ ] show (displaying collection)
+[ ] look for more repetitive code instances => ie. authenticate_user situation
+[ ] write out tests!
+  [ ] start with small unit tests on models
+  [ ] then work on association tests with the Shoulda gem
+*It's like running a marathon - you start with running a mile or 2 and then build up from there*
 
 **Basic Outline of App**
 
