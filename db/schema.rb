@@ -11,36 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920232846) do
-
-  create_table "artists", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "artworks", force: :cascade do |t|
-    t.string  "name"
-    t.integer "artist_id"
-    t.string  "year"
-  end
-
-  create_table "collection_artworks", force: :cascade do |t|
-    t.integer "collection_id"
-    t.integer "artwork_id"
-  end
-
-  create_table "collections", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "user_collections", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "collection_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
