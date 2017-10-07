@@ -4,7 +4,8 @@ class ArtworksController < ApplicationController
     @artworks = Artwork.all
     erb :'/artworks/artworks'
   end
-  #
+
+  # instead of /collections/:id you can use this route to show the collection's artworks
   # get '/collections/:collection_id/artworks' do
   #   if @collection = Collection.find_by(id: params[:collection_id])
   #     @artworks = @collection.artworks
